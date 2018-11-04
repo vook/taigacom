@@ -1,0 +1,23 @@
+{
+  "name": "taigon",
+  "version": "1.0.0",
+  "description": "Taiga REST api client",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vook/taigon.git"
+  },
+  "author": "Jhony Mota",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vook/taigon/issues"
+  },
+  "homepage": "https://github.com/vook/taigon#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cerialize": "^0.1.18"
+  }
+}
