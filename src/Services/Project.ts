@@ -1,163 +1,163 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Project extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`projects`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`projects`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`projects/{projectId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`projects/{projectId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`projects/{projectId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`projects/bulk_update_order`);
     }
 
-    getModules()
+    getModules(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}/modules`);
     }
 
-    modifyPartiallyModules()
+    modifyPartiallyModules(): AxiosPromise<>
     {
         return axios.patch(`projects/{projectId}/modules`);
     }
 
-    getStats()
+    getStats(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}/stats`);
     }
 
-    getIssueStats()
+    getIssueStats(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}/issues_stats`);
     }
 
-    getTagsColors()
+    getTagsColors(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}/tags_colors`);
     }
 
-    createTag()
+    createTag(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/create_tag`);
     }
 
-    editTag()
+    editTag(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/edit_tag`);
     }
 
-    deleteTag()
+    deleteTag(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/delete_tag`);
     }
 
-    mixTags()
+    mixTags(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/mix_tags`);
     }
 
-    like()
+    like(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/like`);
     }
 
-    unlike()
+    unlike(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/unlike`);
     }
 
-    getFans()
+    getFans(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}/fans`);
     }
 
-    watch()
+    watch(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/watch`);
     }
 
-    unwatch()
+    unwatch(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/unwatch`);
     }
 
-    getWatchers()
+    getWatchers(): AxiosPromise<>
     {
         return axios.get(`projects/{projectId}/watchers`);
     }
 
-    createTemplate()
+    createTemplate(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/create_template`);
     }
 
-    leave()
+    leave(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/leave`);
     }
 
-    changeLogo()
+    changeLogo(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/change_logo`);
     }
 
-    removeLogo()
+    removeLogo(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/remove_logo`);
     }
 
-    transferValidateToken()
+    transferValidateToken(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/transfer_validate_token`);
     }
 
-    transferRequest()
+    transferRequest(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/transfer_request`);
     }
 
-    transferStart()
+    transferStart(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/transfer_start`);
     }
 
-    transferAccept()
+    transferAccept(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/transfer_accept`);
     }
 
-    transferReject()
+    transferReject(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/transfer_reject`);
     }
 
-    duplicateProject()
+    duplicateProject(): AxiosPromise<>
     {
         return axios.post(`projects/{projectId}/duplicate`);
     }

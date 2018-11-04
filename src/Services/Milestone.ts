@@ -1,53 +1,53 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Milestone extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`milestones`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`milestones`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`milestones/{milestoneId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`milestones/{milestoneId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`milestones/{milestoneId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`milestones/{milestoneId}`);
     }
 
-    getStats()
+    getStats(): AxiosPromise<>
     {
         return axios.get(`milestones/{milestoneId}/stats`);
     }
 
-    watch()
+    watch(): AxiosPromise<>
     {
         return axios.post(`milestones/{milestoneId}/watch`);
     }
 
-    unwatch()
+    unwatch(): AxiosPromise<>
     {
         return axios.post(`milestones/{milestoneId}/unwatch`);
     }
 
-    getWatchers()
+    getWatchers(): AxiosPromise<>
     {
         return axios.get(`milestones/{milestoneId}/watchers`);
     }

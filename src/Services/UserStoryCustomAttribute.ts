@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStoryCustomAttribute extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`userstory-custom-attributes`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`userstory-custom-attributes`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`userstory-custom-attributes/bulk_update_order`);
     }

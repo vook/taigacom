@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class TaskCustomAttribute extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`task-custom-attributes`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`task-custom-attributes`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`task-custom-attributes/{taskCustomAttributeId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`task-custom-attributes/{taskCustomAttributeId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`task-custom-attributes/{taskCustomAttributeId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`task-custom-attributes/{taskCustomAttributeId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`task-custom-attributes/bulk_update_order`);
     }

@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class TaskStatus extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`task-statuses`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`task-statuses`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`task-statuses/{taskStatusId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`task-statuses/{taskStatusId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`task-statuses/{taskStatusId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`task-statuses/{taskStatusId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`task-statuses/bulk_update_order`);
     }

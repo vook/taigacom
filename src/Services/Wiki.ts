@@ -1,48 +1,48 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Wiki extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`wiki`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`wiki`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`wiki/{wikiId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`wiki/{wikiPageId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`wiki/{wikiPageId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`wiki/{wikiPageId}`);
     }
 
-    watch()
+    watch(): AxiosPromise<>
     {
         return axios.post(`wiki/{wikiPageId}/watch`);
     }
 
-    unwatch()
+    unwatch(): AxiosPromise<>
     {
         return axios.post(`v1/wiki/{wikiPageId}/unwatch`);
     }
 
-    getWatchers()
+    getWatchers(): AxiosPromise<>
     {
         return axios.get(`wiki/{wikiPageId}/watchers`);
     }

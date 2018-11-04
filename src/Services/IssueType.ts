@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class IssueType extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`issue-types`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`issue-types`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`issue-types/{issueTypeId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`issue-types/{issueTypeId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`issue-types/{issueTypeId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`issue-types/{issueTypeId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`issue-types/bulk_update_order`);
     }

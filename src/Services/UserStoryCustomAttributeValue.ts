@@ -1,19 +1,18 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStoryCustomAttributeValue extends AbstractService{
-
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`userstories/custom-attributes-values/{userStoryId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`userstories/custom-attributes-values/{userStoryId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`userstories/custom-attributes-values/{userStoryId}`);
     }

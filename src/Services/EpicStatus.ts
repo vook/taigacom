@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class EpicStatus extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`epic-statuses`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`epic-statuses`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`epic-statuses/{epicStatusId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`epic-statuses/{epicStatusId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`epic-statuses/{epicStatusId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`epic-statuses/{epicStatusId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`epic-statuses/bulk_update_order`);
     }

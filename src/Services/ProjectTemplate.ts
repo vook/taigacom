@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class ProjectTemplate extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`project-templates`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`project-templates`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`project-templates/{projectTemplateId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`project-templates/{projectTemplateId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`project-templates/{projectTemplateId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`project-templates/{projectTemplateId}`);
     }

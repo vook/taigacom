@@ -1,9 +1,10 @@
 import {AbstractService} from "../Abstracts/AbstractService";
 import axios, {AxiosPromise} from "axios";
-import {UserDetail} from "../Models/UserDetail";
+import {IUserDetail} from "../Models/IUser";
+import {IAuthentication} from "../Models/IAuthentication";
 
 export class Authentication extends AbstractService{
-    auth(username: string, password: string): Promise<any>
+    normalAuth(username: string, password: string): AxiosPromise<IAuthentication>
     {
         return axios.post('auth', {
             type: 'normal',
@@ -12,15 +13,46 @@ export class Authentication extends AbstractService{
         }, this.cloneRequest());
     }
 
-    register(params: {
-        type: 'public'
+    githubAuth(code: string, token: string): AxiosPromise<IAuthentication>
+    {
+        return axios.post('auth', {
+            type: 'github',
+            code: code,
+            token: token
+        }, this.cloneRequest());
+    }
+
+    publicRegister(
         username: string,
         password: string,
         email: string,
-        full_name: string,
-        existing?: boolean,
-        token?: string
-    }): AxiosPromise<UserDetail> {
-        return axios.post<UserDetail>('register', params, this.cloneRequest());
+        fullName: string
+    ): AxiosPromise<IUserDetail> {
+        return axios.post<IUserDetail>('register', {
+            type: 'public',
+            username: username,
+            password: password,
+            email: email,
+            full_name: fullName
+        }, this.cloneRequest());
+    }
+
+    privateRegister(
+        username: string,
+        password: string,
+        token: string,
+        exist: boolean,
+        email?: string,
+        fullName?: string
+    ): AxiosPromise<IUserDetail> {
+        return axios.post<IUserDetail>('register', {
+            type: 'private',
+            username: username,
+            password: password,
+            token: token,
+            existing: exist,
+            email: email,
+            full_name: fullName
+        }, this.cloneRequest());
     }
 }

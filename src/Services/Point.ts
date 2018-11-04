@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Point extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`points`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`points`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`points/{pointId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`points/{pointId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`points/{pointId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`points/{pointId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`points/bulk_update_order`);
     }

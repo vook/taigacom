@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class EpicAttachment extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`epics/attachments`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`epics/attachments`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`epics/attachments/{epicAttachmentId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`epics/attachments/{epicAttachmentId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`epics/attachments/{epicAttachmentId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`epics/attachments/{epicAttachmentId}`);
     }

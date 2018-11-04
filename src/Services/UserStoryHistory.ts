@@ -1,28 +1,28 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStoryHistory extends AbstractService{
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`history/userstory/{usId}`);
     }
 
-    getCommentVersions()
+    getCommentVersions(): AxiosPromise<>
     {
         return axios.get(`history/userstory/{usId}/commentVersions?id={commentId}`);
     }
 
-    editComment()
+    editComment(): AxiosPromise<>
     {
         return axios.post(`history/userstory/{usId}/edit_comment?id={commentId}`);
     }
 
-    deleteComment()
+    deleteComment(): AxiosPromise<>
     {
         return axios.post(`history/userstory/{usId}/delete_comment?id={commentId}`);
     }
 
-    recoverComment()
+    recoverComment(): AxiosPromise<>
     {
         return axios.post(`history/userstory/{usId}/undelete_comment?id={commentId}`);
     }

@@ -1,18 +1,18 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Timeline extends AbstractService{
-    listUser()
+    listUser(): AxiosPromise<>
     {
         return axios.get(`timeline/user/{userId}`);
     }
 
-    listProfile()
+    listProfile(): AxiosPromise<>
     {
         return axios.get(`timeline/profile/{userId}`);
     }
 
-    listProject()
+    listProject(): AxiosPromise<>
     {
         return axios.get(`timeline/project/{projectId}`);
     }

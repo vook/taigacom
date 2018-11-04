@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Serverity extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`severities`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`severities`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`severities/{severityId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`severities/{severityId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`severities/{severityId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`severities/{severityId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`severities/bulk_update_order`);
     }

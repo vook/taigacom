@@ -1,93 +1,93 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStory extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`userstories`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`userstories`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`userstories/{userStoryId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`userstories/{userStoryId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`userstories/{userStoryId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`userstories/{userStoryId}`);
     }
 
-    bulkCreate()
+    bulkCreate(): AxiosPromise<>
     {
         return axios.post(`userstories/bulk_create`);
     }
 
-    bulkUpdateBacklogOrder()
+    bulkUpdateBacklogOrder(): AxiosPromise<>
     {
         return axios.post(`userstories/bulk_update_backlog_order`);
     }
 
-    bulkUpdateKanbanOrder()
+    bulkUpdateKanbanOrder(): AxiosPromise<>
     {
         return axios.post(`userstories/bulk_update_kanban_order`);
     }
 
-    bulkUpdateSprintOrder()
+    bulkUpdateSprintOrder(): AxiosPromise<>
     {
         return axios.post(`userstories/bulk_update_sprint_order`);
     }
 
-    bulkUpdateMilestone()
+    bulkUpdateMilestone(): AxiosPromise<>
     {
         return axios.post(`userstories/bulk_update_milestone`);
     }
 
-    getFiltersData()
+    getFiltersData(): AxiosPromise<>
     {
         return axios.get(`userstories/filters_data?project={projectId}`);
     }
 
-    addStar()
+    addStar(): AxiosPromise<>
     {
         return axios.post(`userstories/{userStoryId}/upvote`);
     }
 
-    removeStar()
+    removeStar(): AxiosPromise<>
     {
         return axios.post(`userstories/{userStoryId}/downvote`);
     }
 
-    getVoters()
+    getVoters(): AxiosPromise<>
     {
         return axios.get(`userstories/{userStoryId}/voters`);
     }
 
-    watch()
+    watch(): AxiosPromise<>
     {
         return axios.post(`userstories/{userStoryId}/watch`);
     }
 
-    unwatch()
+    unwatch(): AxiosPromise<>
     {
         return axios.post(`userstories/{userStoryId}/unwatch`);
     }
 
-    getWatchers()
+    getWatchers(): AxiosPromise<>
     {
         return axios.get(`userstories/{userStoryId}/watchers`);
     }

@@ -1,28 +1,30 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
+import {IApplicationToken} from "../Models/IApplicationToken";
+import {IAuthorizationCode} from "../Models/IAutorizationCode";
 
 export class ApplicationToken extends AbstractService{
-    list()
+    list(): AxiosPromise<IApplicationToken[]>
     {
         return axios.get(`application-tokens`);
     }
 
-    get()
+    get(): AxiosPromise<IApplicationToken>
     {
         return axios.get(`application-tokens/{applicationTokenId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<void>
     {
         return axios.delete(`application-tokens/{applicationTokenId}`);
     }
 
-    authorize()
+    authorize(): AxiosPromise<IAuthorizationCode>
     {
         return axios.post(`application-tokens/authorize`);
     }
 
-    validate()
+    validate(): AxiosPromise<>
     {
         return axios.post(`application-tokens/validate`);
     }

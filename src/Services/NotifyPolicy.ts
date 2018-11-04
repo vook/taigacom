@@ -1,23 +1,23 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class NotifyPolicy extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`notify-policies`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`notify-policies/{policyId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`notify-policies/{policyId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`notify-policies/{policyId}`);
     }

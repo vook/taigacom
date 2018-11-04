@@ -1,28 +1,28 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class WikiHistory extends AbstractService{
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`history/wiki/{wikiId}`);
     }
 
-    getCommentVersions()
+    getCommentVersions(): AxiosPromise<>
     {
         return axios.post(`history/wiki/{wikiId}/commentVersions?id={commentId}`);
     }
 
-    editComment()
+    editComment(): AxiosPromise<>
     {
         return axios.post(`history/wiki/{wikiId}/edit_comment?id={commentId}`);
     }
 
-    deleteComment()
+    deleteComment(): AxiosPromise<>
     {
         return axios.post(`history/wiki/{wikiId}/delete_comment?id={commentId}`);
     }
 
-    recoverComment()
+    recoverComment(): AxiosPromise<>
     {
         return axios.post(`history/wiki/{wikiId}/undelete_comment?id={commentId}`);
     }

@@ -1,48 +1,48 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Membership extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`memberships`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`memberships`);
     }
 
-    bulkCreate()
+    bulkCreate(): AxiosPromise<>
     {
         return axios.post(`memberships/bulk_create`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`memberships/{membershipId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`memberships/{membershipId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`memberships/{membershipId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`memberships/{membershipId}`) ;
     }
 
-    resendInvitation()
+    resendInvitation(): AxiosPromise<>
     {
         return axios.post(`memberships/{membershipId}/resend_invitation`);
     }
 
-    getInvitationByAnonymous()
+    getInvitationByAnonymous(): AxiosPromise<>
     {
         return axios.post(`invitations/{invitationUuid}`);
     }

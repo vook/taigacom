@@ -1,8 +1,8 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Locale extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`locales`);
     }

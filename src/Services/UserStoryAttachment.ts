@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStoryAttachment extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`userstories/attachments`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`userstories/attachments`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`userstories/attachments/{userStoryAttachmentId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`userstories/attachments/{userStoryAttachmentId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`userstories/attachments/{userStoryAttachmentId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`userstories/attachments/{userStoryAttachmentId}`);
     }

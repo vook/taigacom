@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class TaskAttachment extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`tasks/attachments`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`tasks/attachments`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`tasks/attachments/{taskAttachmentId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`tasks/attachments/{taskAttachmentId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`tasks/attachments/{taskAttachmentId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`tasks/attachments/{taskAttachmentId}`);
     }

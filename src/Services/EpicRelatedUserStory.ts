@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class EpicRelatedUserStory extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`epics/{epicId}/related_userstories`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`epics/{epicId}/related_userstories`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`epics/{epicId}/related_userstories/{userStoryId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`epics/{epicId}/related_userstories/{userStoryId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`epics/{epicId}/related_userstories/{userStoryId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`epics/{epicId}/related_userstories/{userStoryId}`);
     }
 
-    bulkCreate()
+    bulkCreate(): AxiosPromise<>
     {
         return axios.post(`epics/{epicId}/related_userstories/bulk_create`);
     }

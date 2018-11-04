@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class WikiLink extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`wiki-links`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`wiki-links`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`wiki-links/{wikiLinkId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`wiki-links/{wikiLinkId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`wiki-links/{wikiLinkId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`wiki-links/{wikiLinkId}`);
     }

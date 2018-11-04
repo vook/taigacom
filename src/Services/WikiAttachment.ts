@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class WikiAttachment extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`wiki/attachments`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`wiki/attachments`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`wiki/attachments/{wikiPageAttachmentId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`wiki/attachments/{wikiPageAttachmentId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`wiki/attachments/{wikiPageAttachmentId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`wiki/attachments/{wikiPageAttachmentId}`);
     }

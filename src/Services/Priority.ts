@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Priority extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`priorities`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`priorities`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`priorities/{priorityId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`priorities/{priorityId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`priorities/{priorityId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`priorities/{priorityId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`priorities/bulk_update_order`);
     }

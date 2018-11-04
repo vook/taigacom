@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStoryStatus extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`userstory-statuses`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`userstory-statuses`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`userstory-statuses/{userStoryStatusId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`userstory-statuses/{userStoryStatusId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`userstory-statuses/{userStoryStatusId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`userstory-statuses/{userStoryStatusId}`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`userstory-statuses/bulk_update_order`);
     }

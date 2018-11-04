@@ -1,33 +1,33 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class UserStorage extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`user-storage`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`user-storage`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`user-storage/{key}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`user-storage/{key}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`user-storage/{key}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`user-storage/{key}`);
     }

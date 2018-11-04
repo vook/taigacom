@@ -1,53 +1,53 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Webhook extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`webhooks`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`webhooks`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`webhooks/{webhookId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`webhooks/{webhookId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`webhooks/{webhookId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`webhooks/{webhookId}`);
     }
 
-    test()
+    test(): AxiosPromise<>
     {
         return axios.post(`webhooks/{webhookId}/test`);
     }
 
-    listLogs()
+    listLogs(): AxiosPromise<>
     {
         return axios.get(`webhooklogs`);
     }
 
-    getLog()
+    getLog(): AxiosPromise<>
     {
         return axios.get(`webhooklogs/{webhookLogId}`);
     }
 
-    resendLogRequest()
+    resendLogRequest(): AxiosPromise<>
     {
         return axios.post(`webhooklogs/{webhookLogId}/resend`);
     }

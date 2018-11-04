@@ -1,8 +1,8 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class FeedBack extends AbstractService{
-    sendFeedback()
+    sendFeedback(): AxiosPromise<>
     {
         return axios.post(`feedback`);
     }

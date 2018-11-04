@@ -1,38 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class IssueCustomAttribute extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`issue-custom-attributes`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`issue-custom-attributes`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`issue-custom-attributes/{issueCustomAttributeId`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`issue-custom-attributes/{issueCustomAttributeId`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`issue-custom-attributes/{issueCustomAttributeId`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`issue-custom-attributes/{issueCustomAttributeId`);
     }
 
-    bulkUpdateOrder()
+    bulkUpdateOrder(): AxiosPromise<>
     {
         return axios.post(`issue-custom-attributes/bulk_update_order`);
     }

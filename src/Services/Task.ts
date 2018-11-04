@@ -1,73 +1,73 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Task extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`tasks`);
     }
 
-    create()
+    create(): AxiosPromise<>
     {
         return axios.post(`tasks`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`tasks/{taskId}`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`tasks/{taskId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`tasks/{taskId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`tasks/{taskId}`);
     }
 
-    bulkCreate()
+    bulkCreate(): AxiosPromise<>
     {
         return axios.post(`tasks/bulk_create`);
     }
 
-    getFiltersData()
+    getFiltersData(): AxiosPromise<>
     {
         return axios.get(`tasks/filters_data?project={projectId}`);
     }
 
-    addStar()
+    addStar(): AxiosPromise<>
     {
         return axios.post(`tasks/{taskId}/upvote`);
     }
 
-    removeStar()
+    removeStar(): AxiosPromise<>
     {
         return axios.post(`tasks/{taskId}/downvote`);
     }
 
-    getVoters()
+    getVoters(): AxiosPromise<>
     {
         return axios.get(`tasks/{taskId}/voters`);
     }
 
-    watch()
+    watch(): AxiosPromise<>
     {
         return axios.post(`tasks/{taskId}/watch`);
     }
 
-    unwatch()
+    unwatch(): AxiosPromise<>
     {
         return axios.post(`tasks/{taskId}/unwatch`);
     }
 
-    getWatchers()
+    getWatchers(): AxiosPromise<>
     {
         return axios.get(`tasks/{taskId}/watchers`);
     }

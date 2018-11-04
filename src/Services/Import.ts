@@ -1,8 +1,8 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class Import extends AbstractService{
-    projectDump()
+    projectDump(): AxiosPromise<>
     {
         return axios.post(`importer/load_dump`);
     }

@@ -1,93 +1,93 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 
 export class User extends AbstractService{
-    list()
+    list(): AxiosPromise<>
     {
         return axios.get(`users`);
     }
 
-    get()
+    get(): AxiosPromise<>
     {
         return axios.get(`/api/v1/users/{userId}`);
     }
 
-    getMe()
+    getMe(): AxiosPromise<>
     {
         return axios.get(`users/me`);
     }
 
-    modify()
+    modify(): AxiosPromise<>
     {
         return axios.put(`users/{userId}`);
     }
 
-    modifyPartially()
+    modifyPartially(): AxiosPromise<>
     {
         return axios.patch(`users/{userId}`);
     }
 
-    delete()
+    delete(): AxiosPromise<>
     {
         return axios.delete(`users/{userId}`);
     }
 
-    getStats()
+    getStats(): AxiosPromise<>
     {
         return axios.get(`users/{userId}/stats`);
     }
 
-    getWatched()
+    getWatched(): AxiosPromise<>
     {
         return axios.get(`users/{userId}/watched`);
     }
 
-    getLiked()
+    getLiked(): AxiosPromise<>
     {
         return axios.get(`users/{userId}/liked`);
     }
 
-    getVoted()
+    getVoted(): AxiosPromise<>
     {
         return axios.get(`users/{userId}/voted`);
     }
 
-    getContacts()
+    getContacts(): AxiosPromise<>
     {
         return axios.get(`users/{userId}/contacts`);
     }
 
-    cancel()
+    cancel(): AxiosPromise<>
     {
         return axios.post(`users/cancel`);
     }
 
-    changeAvatar()
+    changeAvatar(): AxiosPromise<>
     {
         return axios.post(`users/change_avatar`);
     }
 
-    removeAvatar()
+    removeAvatar(): AxiosPromise<>
     {
         return axios.post(`users/remove_avatar`);
     }
 
-    changeEmail()
+    changeEmail(): AxiosPromise<>
     {
         return axios.post(`users/change_email`);
     }
 
-    changePassword()
+    changePassword(): AxiosPromise<>
     {
         return axios.post(`users/change_password`);
     }
 
-    recoverPassword()
+    recoverPassword(): AxiosPromise<>
     {
         return axios.post(`users/password_recovery`);
     }
 
-    changePasswordFromRecovery()
+    changePasswordFromRecovery(): AxiosPromise<>
     {
         return axios.post(`users/change_password_from_recovery`);
     }
