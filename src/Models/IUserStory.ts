@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IUserStory {
     assigned_to: number;
     assigned_to_extra_info: AssignedToExtraInfoOrOwnerExtraInfo;
     attachments?: (null)[] | null;
@@ -47,51 +47,4 @@ export interface IXXX {
     tribe_gig?: null;
     version: number;
     watchers?: (null)[] | null;
-}
-export interface AssignedToExtraInfoOrOwnerExtraInfo {
-    big_photo?: null;
-    full_name_display: string;
-    gravatar_id: string;
-    id: number;
-    is_active: boolean;
-    photo?: null;
-    username: string;
-}
-export interface EpicsEntity {
-    color: string;
-    id: number;
-    project: Project;
-    ref: number;
-    subject: string;
-}
-export interface Project {
-    id: number;
-    name: string;
-    slug: string;
-}
-export interface Neighbors {
-    next: NextOrPrevious;
-    previous: NextOrPrevious;
-}
-export interface NextOrPrevious {
-    id: number;
-    ref: number;
-    subject: string;
-}
-export interface Points {
-    1: number;
-    2: number;
-    3: number;
-    4: number;
-}
-export interface ProjectExtraInfo {
-    id: number;
-    logo_small_url?: null;
-    name: string;
-    slug: string;
-}
-export interface StatusExtraInfo {
-    color: string;
-    is_closed: boolean;
-    name: string;
 }

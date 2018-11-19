@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IIssue {
     assigned_to: number;
     assigned_to_extra_info: AssignedToExtraInfoOrOwnerExtraInfo;
     blocked_note: string;
@@ -34,33 +34,4 @@ export interface IXXX {
     type: number;
     version: number;
     watchers?: (number)[] | null;
-}
-export interface AssignedToExtraInfoOrOwnerExtraInfo {
-    big_photo?: null;
-    full_name_display: string;
-    gravatar_id: string;
-    id: number;
-    is_active: boolean;
-    photo?: null;
-    username: string;
-}
-export interface Neighbors {
-    next: NextOrPrevious;
-    previous: NextOrPrevious;
-}
-export interface NextOrPrevious {
-    id: number;
-    ref: number;
-    subject: string;
-}
-export interface ProjectExtraInfo {
-    id: number;
-    logo_small_url?: null;
-    name: string;
-    slug: string;
-}
-export interface StatusExtraInfo {
-    color: string;
-    is_closed: boolean;
-    name: string;
 }

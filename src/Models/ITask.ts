@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITask {
     assigned_to: number;
     assigned_to_extra_info: AssignedToExtraInfoOrOwnerExtraInfo;
     attachments?: (null)[] | null;
@@ -38,51 +38,4 @@ export interface IXXX {
     user_story_extra_info: UserStoryExtraInfo;
     version: number;
     watchers?: (number)[] | null;
-}
-export interface AssignedToExtraInfoOrOwnerExtraInfo {
-    big_photo?: null;
-    full_name_display: string;
-    gravatar_id: string;
-    id: number;
-    is_active: boolean;
-    photo?: null;
-    username: string;
-}
-export interface Neighbors {
-    next: Next;
-    previous?: null;
-}
-export interface Next {
-    id: number;
-    ref: number;
-    subject: string;
-}
-export interface ProjectExtraInfo {
-    id: number;
-    logo_small_url?: null;
-    name: string;
-    slug: string;
-}
-export interface StatusExtraInfo {
-    color: string;
-    is_closed: boolean;
-    name: string;
-}
-export interface UserStoryExtraInfo {
-    epics?: (EpicsEntity)[] | null;
-    id: number;
-    ref: number;
-    subject: string;
-}
-export interface EpicsEntity {
-    color: string;
-    id: number;
-    project: Project;
-    ref: number;
-    subject: string;
-}
-export interface Project {
-    id: number;
-    name: string;
-    slug: string;
 }

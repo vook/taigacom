@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IWiki {
     content: string;
     created_date: string;
     editions: number;
@@ -13,10 +13,4 @@ export interface IXXX {
     slug: string;
     total_watchers: number;
     version: number;
-}
-export interface ProjectExtraInfo {
-    id: number;
-    logo_small_url?: null;
-    name: string;
-    slug: string;
 }

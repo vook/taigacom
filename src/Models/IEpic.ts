@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IEpic {
     assigned_to?: null;
     assigned_to_extra_info?: null;
     attachments?: (null)[] | null;
@@ -33,37 +33,4 @@ export interface IXXX {
     user_stories_counts: UserStoriesCounts;
     version: number;
     watchers?: (number)[] | null;
-}
-export interface Neighbors {
-    next: NextOrPrevious;
-    previous: NextOrPrevious;
-}
-export interface NextOrPrevious {
-    id: number;
-    ref: number;
-    subject: string;
-}
-export interface OwnerExtraInfo {
-    big_photo?: null;
-    full_name_display: string;
-    gravatar_id: string;
-    id: number;
-    is_active: boolean;
-    photo?: null;
-    username: string;
-}
-export interface ProjectExtraInfo {
-    id: number;
-    logo_small_url?: null;
-    name: string;
-    slug: string;
-}
-export interface StatusExtraInfo {
-    color: string;
-    is_closed: boolean;
-    name: string;
-}
-export interface UserStoriesCounts {
-    progress: number;
-    total: number;
 }

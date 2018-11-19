@@ -2,30 +2,66 @@ import {AbstractService} from "../Abstracts/AbstractService";
 import axios, {AxiosPromise} from "axios";
 import {IApplicationToken} from "../Models/IApplicationToken";
 import {IAuthorizationCode} from "../Models/IAutorizationCode";
+import {ICypheredToken} from "../Models/ICypheredToken";
 
-export class ApplicationToken extends AbstractService{
+export class ApplicationToken extends AbstractService
+{
+
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#application-tokens-list
+     */
     list(): AxiosPromise<IApplicationToken[]>
     {
-        return axios.get(`application-tokens`);
+        return axios.get(`application-tokens`, this.request);
     }
 
-    get(): AxiosPromise<IApplicationToken>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#application-tokens-get
+     *
+     * @param applicationTokenId
+     */
+    get(applicationTokenId: number): AxiosPromise<IApplicationToken>
     {
-        return axios.get(`application-tokens/{applicationTokenId}`);
+        return axios.get(`application-tokens/${applicationTokenId}`, this.request);
     }
 
-    delete(): AxiosPromise<void>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#application-tokens-delete
+     *
+     * @param applicationTokenId
+     */
+    delete(applicationTokenId: number): AxiosPromise<void>
     {
-        return axios.delete(`application-tokens/{applicationTokenId}`);
+        return axios.delete(`application-tokens/${applicationTokenId}`, this.request);
     }
 
-    authorize(): AxiosPromise<IAuthorizationCode>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#application-tokens-authorize
+     *
+     * @param applicationId
+     * @param state
+     */
+    authorize(applicationId: number, state: string): AxiosPromise<IAuthorizationCode>
     {
-        return axios.post(`application-tokens/authorize`);
+        return axios.post(`application-tokens/authorize`,{
+                application: applicationId,
+                state: state
+            }, this.request
+        );
     }
 
-    validate(): AxiosPromise<>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#application-tokens-validate
+     *
+     * @param applicationId
+     * @param state
+     */
+    validate(applicationId: number, state: string): AxiosPromise<ICypheredToken>
     {
-        return axios.post(`application-tokens/validate`);
+        return axios.post(`application-tokens/validate`, {
+            application: applicationId,
+            state: state
+        }, this.request
+        );
     }
 }
