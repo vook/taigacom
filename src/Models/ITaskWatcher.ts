@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITaskWatcher {
     full_name: string;
     id: number;
     username: string;

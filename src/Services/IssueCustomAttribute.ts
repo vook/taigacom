@@ -1,39 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class IssueCustomAttribute extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`issue-custom-attributes`);
+        return await this.http.get<any>(`issue-custom-attributes`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`issue-custom-attributes`);
+        return await this.http.post<any>(`issue-custom-attributes`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`issue-custom-attributes/{issueCustomAttributeId`);
+        return await this.http.get<any>(`issue-custom-attributes/{issueCustomAttributeId`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`issue-custom-attributes/{issueCustomAttributeId`);
+        return await this.http.put<any>(`issue-custom-attributes/{issueCustomAttributeId`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`issue-custom-attributes/{issueCustomAttributeId`);
+        return await this.http.patch<any>(`issue-custom-attributes/{issueCustomAttributeId`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`issue-custom-attributes/{issueCustomAttributeId`);
+        return await this.http.delete(`issue-custom-attributes/{issueCustomAttributeId`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`issue-custom-attributes/bulk_update_order`);
+        return await this.http.post<any>(`issue-custom-attributes/bulk_update_order`, {}, this.request);
     }
 }

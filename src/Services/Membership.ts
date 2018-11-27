@@ -1,49 +1,48 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Membership extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`memberships`);
+        return await this.http.get<any>(`memberships`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`memberships`);
+        return await this.http.post<any>(`memberships`, {}, this.request);
     }
 
-    bulkCreate(): AxiosPromise<>
+    async bulkCreate(): Promise<any>
     {
-        return axios.post(`memberships/bulk_create`);
+        return await this.http.post<any>(`memberships/bulk_create`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`memberships/{membershipId}`);
+        return await this.http.get<any>(`memberships/{membershipId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`memberships/{membershipId}`);
+        return await this.http.put<any>(`memberships/{membershipId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`memberships/{membershipId}`);
+        return await this.http.patch<any>(`memberships/{membershipId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`memberships/{membershipId}`) ;
+        return await this.http.delete(`memberships/{membershipId}`, this.request) ;
     }
 
-    resendInvitation(): AxiosPromise<>
+    async resendInvitation(): Promise<any>
     {
-        return axios.post(`memberships/{membershipId}/resend_invitation`);
+        return await this.http.post<any>(`memberships/{membershipId}/resend_invitation`, {}, this.request);
     }
 
-    getInvitationByAnonymous(): AxiosPromise<>
+    async getInvitationByAnonymous(): Promise<any>
     {
-        return axios.post(`invitations/{invitationUuid}`);
+        return await this.http.post<any>(`invitations/{invitationUuid}`, {}, this.request);
     }
 }

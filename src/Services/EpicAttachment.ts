@@ -1,34 +1,34 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class EpicAttachment extends AbstractService{
-    list(): AxiosPromise<>
+export class EpicAttachment extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`epics/attachments`);
+        return await this.http.get<any>(`epics/attachments`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`epics/attachments`);
+        return await this.http.post<any>(`epics/attachments`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`epics/attachments/{epicAttachmentId}`);
+        return await this.http.get<any>(`epics/attachments/{epicAttachmentId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`epics/attachments/{epicAttachmentId}`);
+        return await this.http.put<any>(`epics/attachments/{epicAttachmentId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`epics/attachments/{epicAttachmentId}`);
+        return await this.http.patch<any>(`epics/attachments/{epicAttachmentId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`epics/attachments/{epicAttachmentId}`);
+        return await this.http.delete(`epics/attachments/{epicAttachmentId}`, this.request);
     }
 }

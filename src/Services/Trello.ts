@@ -1,29 +1,29 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Trello extends AbstractService{
-    getAuthorizationUrl(): AxiosPromise<>
+export class Trello extends AbstractService
+{
+    async getAuthorizationUrl(): Promise<any>
     {
-        return axios.get(`importers/trello/auth_url`);
+        return await this.http.get<any>(`importers/trello/auth_url`, this.request);
     }
 
-    getAuthorizationToken(): AxiosPromise<>
+    async getAuthorizationToken(): Promise<any>
     {
-        return axios.post(`importers/trello/authorize`);
+        return await this.http.post<any>(`importers/trello/authorize`, {}, this.request);
     }
 
-    getBoards(): AxiosPromise<>
+    async getBoards(): Promise<any>
     {
-        return axios.post(`importers/trello/list_projects`);
+        return await this.http.post<any>(`importers/trello/list_projects`, {}, this.request);
     }
 
-    listUsersRelatedToBoard(): AxiosPromise<>
+    async listUsersRelatedToBoard(): Promise<any>
     {
-        return axios.post(`importers/trello/list_users`);
+        return await this.http.post<any>(`importers/trello/list_users`, {}, this.request);
     }
 
-    importProject(): AxiosPromise<>
+    async importProject(): Promise<any>
     {
-        return axios.post(`importers/trello/import_project`);
+        return await this.http.post<any>(`importers/trello/import_project`, {}, this.request);
     }
 }

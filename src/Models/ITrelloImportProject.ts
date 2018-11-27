@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITrelloImportProject {
     is_backlog_activated: boolean;
     is_kanban_activated: boolean;
     my_permissions?: (string)[] | null;

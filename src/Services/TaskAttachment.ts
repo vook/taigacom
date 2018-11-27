@@ -1,34 +1,34 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class TaskAttachment extends AbstractService{
-    list(): AxiosPromise<>
+export class TaskAttachment extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`tasks/attachments`);
+        return await this.http.get<any>(`tasks/attachments`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`tasks/attachments`);
+        return await this.http.post<any>(`tasks/attachments`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`tasks/attachments/{taskAttachmentId}`);
+        return await this.http.get<any>(`tasks/attachments/{taskAttachmentId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`tasks/attachments/{taskAttachmentId}`);
+        return await this.http.put<any>(`tasks/attachments/{taskAttachmentId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`tasks/attachments/{taskAttachmentId}`);
+        return await this.http.patch<any>(`tasks/attachments/{taskAttachmentId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`tasks/attachments/{taskAttachmentId}`);
+        return await this.http.delete(`tasks/attachments/{taskAttachmentId}`, this.request);
     }
 }

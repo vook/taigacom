@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IHistory {
     comment: string;
     comment_html: string;
     created_at: string;

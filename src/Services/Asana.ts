@@ -1,29 +1,29 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Asana extends AbstractService{
-    getAuthorizationUrl(): AxiosPromise<>
+export class Asana extends AbstractService
+{
+    async getAuthorizationUrl(): Promise<any>
     {
-        return axios.get(`importers/asana/auth_url`);
+        return await this.http.get<any>(`importers/asana/auth_url`, this.request);
     }
 
-    getAuthorizationToken(): AxiosPromise<>
+    async getAuthorizationToken(): Promise<any>
     {
-        return axios.post(`importers/asana/authorize`);
+        return await this.http.post<any>(`importers/asana/authorize`, {}, this.request);
     }
 
-    getBoards(): AxiosPromise<>
+    async getBoards(): Promise<any>
     {
-        return axios.post(`importers/asana/list_projects`);
+        return await this.http.post<any>(`importers/asana/list_projects`, {}, this.request);
     }
 
-    listUsersRelatedToBoard(): AxiosPromise<>
+    async listUsersRelatedToBoard(): Promise<any>
     {
-        return axios.post(`importers/asana/list_users`);
+        return await this.http.post<any>(`importers/asana/list_users`, {}, this.request);
     }
 
-    importProject(): AxiosPromise<>
+    async importProject(): Promise<any>
     {
-        return axios.post(`importers/asana/import_project`);
+        return await this.http.post<any>(`importers/asana/import_project`, {}, this.request);
     }
 }

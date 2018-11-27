@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IEpicFiltersData {
     assigned_to?: (AssignedToEntity)[] | null;
     owners?: (OwnersEntity)[] | null;
     statuses?: (StatusesEntity)[] | null;

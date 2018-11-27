@@ -1,5 +1,4 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 import {resolverSlugs} from "../types";
 import {IResolver} from "../Models/IResolver";
 
@@ -11,9 +10,9 @@ export class Resolver extends AbstractService
      *
      * @param params
      */
-    resolveReferencesAndSlugs(params: resolverSlugs): AxiosPromise<IResolver>
+    async resolveReferencesAndSlugs(params: resolverSlugs): Promise<IResolver>
     {
-        return axios.get(`resolver`, this.request
+        return await this.http.get<any>(`resolver`, this.request
             .addParam('project', params.project)
             .addParam('us', params.userStory)
             .addParam('issue', params.issue)

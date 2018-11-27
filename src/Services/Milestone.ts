@@ -1,54 +1,53 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Milestone extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`milestones`);
+        return await this.http.get<any>(`milestones`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`milestones`);
+        return await this.http.post<any>(`milestones`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`milestones/{milestoneId}`);
+        return await this.http.get<any>(`milestones/{milestoneId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`milestones/{milestoneId}`);
+        return await this.http.put<any>(`milestones/{milestoneId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`milestones/{milestoneId}`);
+        return await this.http.patch<any>(`milestones/{milestoneId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`milestones/{milestoneId}`);
+        return await this.http.delete(`milestones/{milestoneId}`, this.request);
     }
 
-    getStats(): AxiosPromise<>
+    async getStats(): Promise<any>
     {
-        return axios.get(`milestones/{milestoneId}/stats`);
+        return await this.http.get<any>(`milestones/{milestoneId}/stats`, this.request);
     }
 
-    watch(): AxiosPromise<>
+    async watch(): Promise<any>
     {
-        return axios.post(`milestones/{milestoneId}/watch`);
+        return await this.http.post<any>(`milestones/{milestoneId}/watch`, {}, this.request);
     }
 
-    unwatch(): AxiosPromise<>
+    async unwatch(): Promise<any>
     {
-        return axios.post(`milestones/{milestoneId}/unwatch`);
+        return await this.http.post<any>(`milestones/{milestoneId}/unwatch`, {}, this.request);
     }
 
-    getWatchers(): AxiosPromise<>
+    async getWatchers(): Promise<any>
     {
-        return axios.get(`milestones/{milestoneId}/watchers`);
+        return await this.http.get<any>(`milestones/{milestoneId}/watchers`, this.request);
     }
 }

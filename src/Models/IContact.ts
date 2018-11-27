@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IContact {
     comment: string;
     created_date: string;
     id: number;

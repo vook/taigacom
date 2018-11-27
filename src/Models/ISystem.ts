@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ISystem {
     projects: Projects;
     users: Users;
     userstories: Userstories;

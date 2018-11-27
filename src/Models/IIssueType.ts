@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IIssueType {
     color: string;
     id: number;
     name: string;

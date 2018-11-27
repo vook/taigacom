@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IAsanaUser {
     full_name: string;
     id: number;
     user?: User | null;

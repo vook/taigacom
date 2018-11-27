@@ -1,19 +1,18 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class EpicCustomAttributeValue extends AbstractService{
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`epics/custom-attributes-values/{epicId}`);
+        return await this.http.get<any>(`epics/custom-attributes-values/{epicId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`epics/custom-attributes-values/{epicId}`);
+        return await this.http.put<any>(`epics/custom-attributes-values/{epicId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`epics/custom-attributes-values/{epicId}`);
+        return await this.http.patch<any>(`epics/custom-attributes-values/{epicId}`, {}, this.request);
     }
 }

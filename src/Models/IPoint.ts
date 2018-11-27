@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IPoint {
     id: number;
     name: string;
     order: number;

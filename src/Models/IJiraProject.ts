@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IJiraProject {
     description: string;
     id: string;
     is_private: boolean;

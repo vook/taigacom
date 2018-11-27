@@ -1,34 +1,65 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
+import {IProjectTemplate} from "../Models/IProjectTemplate";
 
-export class ProjectTemplate extends AbstractService{
-    list(): AxiosPromise<>
+export class ProjectTemplate extends AbstractService
+{
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#project-templates-list
+     */
+    async list(): Promise<IProjectTemplate[]>
     {
-        return axios.get(`project-templates`);
+        return await this.http.get<any>(`project-templates`, this.request);
     }
 
-    create(): AxiosPromise<>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#project-templates-create
+     *
+     * @param data
+     */
+    async create(data: IProjectTemplate): Promise<IProjectTemplate>
     {
-        return axios.post(`project-templates`);
+        return await this.http.post<any>(`project-templates`, data, this.request);
     }
 
-    get(): AxiosPromise<>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#project-templates-get
+     *
+     * @param id
+     */
+    async get(id: number): Promise<IProjectTemplate>
     {
-        return axios.get(`project-templates/{projectTemplateId}`);
+        return await this.http.get<any>(`project-templates/${id}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#project-templates-edit
+     *
+     * @param id
+     * @param data
+     */
+    async modify(id: number, data: IProjectTemplate): Promise<IProjectTemplate>
     {
-        return axios.put(`project-templates/{projectTemplateId}`);
+        return await this.http.put<any>(`project-templates/${id}`, data, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#project-templates-edit
+     *
+     * @param id
+     * @param data
+     */
+    async modifyPartially(id: number, data: IProjectTemplate): Promise<IProjectTemplate>
     {
-        return axios.patch(`project-templates/{projectTemplateId}`);
+        return await this.http.patch<any>(`project-templates/${id}`, data, this.request);
     }
 
-    delete(): AxiosPromise<>
+    /**
+     * @link https://taigaio.github.io/taiga-doc/dist/api.html#project-templates-delete
+     *
+     * @param id
+     */
+    async delete(id: number): Promise<void>
     {
-        return axios.delete(`project-templates/{projectTemplateId}`);
+        return await this.http.delete(`project-templates/${id}`, this.request);
     }
 }

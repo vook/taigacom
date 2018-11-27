@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IFeedback {
     comment: string;
     created_date: string;
     email: string;

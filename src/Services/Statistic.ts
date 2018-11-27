@@ -1,14 +1,14 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Statistic extends AbstractService{
-    discover(): AxiosPromise<>
+export class Statistic extends AbstractService
+{
+    async discover(): Promise<any>
     {
-        return axios.get(`stats/discover`);
+        return await this.http.get<any>(`stats/discover`, this.request);
     }
 
-    system(): AxiosPromise<>
+    async system(): Promise<any>
     {
-        return axios.get(`stats/system`);
+        return await this.http.get<any>(`stats/system`, this.request);
     }
 }

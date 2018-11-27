@@ -1,54 +1,54 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Webhook extends AbstractService{
-    list(): AxiosPromise<>
+export class Webhook extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`webhooks`);
+        return await this.http.get<any>(`webhooks`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`webhooks`);
+        return await this.http.post<any>(`webhooks`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`webhooks/{webhookId}`);
+        return await this.http.get<any>(`webhooks/{webhookId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`webhooks/{webhookId}`);
+        return await this.http.put<any>(`webhooks/{webhookId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`webhooks/{webhookId}`);
+        return await this.http.patch<any>(`webhooks/{webhookId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`webhooks/{webhookId}`);
+        return await this.http.delete(`webhooks/{webhookId}`, this.request);
     }
 
-    test(): AxiosPromise<>
+    async test(): Promise<any>
     {
-        return axios.post(`webhooks/{webhookId}/test`);
+        return await this.http.post<any>(`webhooks/{webhookId}/test`, {}, this.request);
     }
 
-    listLogs(): AxiosPromise<>
+    async listLogs(): Promise<any>
     {
-        return axios.get(`webhooklogs`);
+        return await this.http.get<any>(`webhooklogs`, this.request);
     }
 
-    getLog(): AxiosPromise<>
+    async getLog(): Promise<any>
     {
-        return axios.get(`webhooklogs/{webhookLogId}`);
+        return await this.http.get<any>(`webhooklogs/{webhookLogId}`, this.request);
     }
 
-    resendLogRequest(): AxiosPromise<>
+    async resendLogRequest(): Promise<any>
     {
-        return axios.post(`webhooklogs/{webhookLogId}/resend`);
+        return await this.http.post<any>(`webhooklogs/{webhookLogId}/resend`, {}, this.request);
     }
 }

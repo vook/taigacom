@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITimeline {
     content_type: number;
     created: string;
     data: Data;

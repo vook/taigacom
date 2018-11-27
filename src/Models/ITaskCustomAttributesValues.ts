@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITaskCustomAttributesValues {
     attributes_values: AttributesValues;
     task: number;
     version: number;

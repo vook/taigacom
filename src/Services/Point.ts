@@ -1,39 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Point extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`points`);
+        return await this.http.get<any>(`points`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`points`);
+        return await this.http.post<any>(`points`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`points/{pointId}`);
+        return await this.http.get<any>(`points/{pointId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`points/{pointId}`);
+        return await this.http.put<any>(`points/{pointId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`points/{pointId}`);
+        return await this.http.patch<any>(`points/{pointId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`points/{pointId}`);
+        return await this.http.delete(`points/{pointId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`points/bulk_update_order`);
+        return await this.http.post<any>(`points/bulk_update_order`, {}, this.request);
     }
 }

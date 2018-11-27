@@ -1,29 +1,28 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Github extends AbstractService{
-    getAuthorizationUrl(): AxiosPromise<>
+    async getAuthorizationUrl(): Promise<any>
     {
-        return axios.get(`importers/github/auth_url`);
+        return await this.http.get<any>(`importers/github/auth_url`, this.request);
     }
 
-    getAuthorizationToken(): AxiosPromise<>
+    async getAuthorizationToken(): Promise<any>
     {
-        return axios.post(`importers/github/authorize`);
+        return await this.http.post<any>(`importers/github/authorize`, {}, this.request);
     }
 
-    getBoards(): AxiosPromise<>
+    async getBoards(): Promise<any>
     {
-        return axios.post(`importers/github/list_projects`);
+        return await this.http.post<any>(`importers/github/list_projects`, {}, this.request);
     }
 
-    listUsersRelatedToBoard(): AxiosPromise<>
+    async listUsersRelatedToBoard(): Promise<any>
     {
-        return axios.post(`importers/github/list_users`);
+        return await this.http.post<any>(`importers/github/list_users`, {}, this.request);
     }
 
-    importProject(): AxiosPromise<>
+    async importProject(): Promise<any>
     {
-        return axios.post(`importers/github/import_project`);
+        return await this.http.post<any>(`importers/github/import_project`, {}, this.request);
     }
 }

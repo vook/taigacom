@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IIssueFilterData {
     assigned_to?: (AssignedToEntity)[] | null;
     owners?: (OwnersEntity)[] | null;
     priorities?: (PrioritiesEntityOrSeveritiesEntityOrStatusesEntityOrTypesEntity)[] | null;

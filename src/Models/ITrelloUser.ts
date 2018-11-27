@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITrelloUser {
     email?: string | null;
     full_name: string;
     id: string;

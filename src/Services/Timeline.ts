@@ -1,19 +1,19 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Timeline extends AbstractService{
-    listUser(): AxiosPromise<>
+export class Timeline extends AbstractService
+{
+    async listUser(): Promise<any>
     {
-        return axios.get(`timeline/user/{userId}`);
+        return await this.http.get<any>(`timeline/user/{userId}`, this.request);
     }
 
-    listProfile(): AxiosPromise<>
+    async listProfile(): Promise<any>
     {
-        return axios.get(`timeline/profile/{userId}`);
+        return await this.http.get<any>(`timeline/profile/{userId}`, this.request);
     }
 
-    listProject(): AxiosPromise<>
+    async listProject(): Promise<any>
     {
-        return axios.get(`timeline/project/{projectId}`);
+        return await this.http.get<any>(`timeline/project/{projectId}`, this.request);
     }
 }

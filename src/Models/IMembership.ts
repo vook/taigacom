@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IMembership {
     color: string;
     created_at: string;
     email: string;

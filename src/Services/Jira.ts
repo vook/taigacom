@@ -1,29 +1,28 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Jira extends AbstractService{
-    getAuthorizationUrl(): AxiosPromise<>
+    async getAuthorizationUrl(): Promise<any>
     {
-        return axios.get(`importers/jira/auth_url`);
+        return await this.http.get<any>(`importers/jira/auth_url`, this.request);
     }
 
-    getAuthorizationToken(): AxiosPromise<>
+    async getAuthorizationToken(): Promise<any>
     {
-        return axios.post(`importers/jira/authorize`);
+        return await this.http.post<any>(`importers/jira/authorize`, {}, this.request);
     }
 
-    getBoards(): AxiosPromise<>
+    async getBoards(): Promise<any>
     {
-        return axios.post(`importers/jira/list_projects`);
+        return await this.http.post<any>(`importers/jira/list_projects`, {}, this.request);
     }
 
-    listUsersRelatedToBoard(): AxiosPromise<>
+    async listUsersRelatedToBoard(): Promise<any>
     {
-        return axios.post(`importers/jira/list_users`);
+        return await this.http.post<any>(`importers/jira/list_users`, {}, this.request);
     }
 
-    importProject(): AxiosPromise<>
+    async importProject(): Promise<any>
     {
-        return axios.post(`importers/jira/import_project`);
+        return await this.http.post<any>(`importers/jira/import_project`, {}, this.request);
     }
 }

@@ -1,39 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class IssueStatus extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`issue-statuses`);
+        return await this.http.get<any>(`issue-statuses`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`issue-statuses`);
+        return await this.http.post<any>(`issue-statuses`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`issue-statuses/{issueStatusId}`);
+        return await this.http.get<any>(`issue-statuses/{issueStatusId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`issue-statuses/{issueStatusId}`);
+        return await this.http.put<any>(`issue-statuses/{issueStatusId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.post(`issue-statuses/{issueStatusId}`);
+        return await this.http.post<any>(`issue-statuses/{issueStatusId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`issue-statuses/{issueStatusId}`);
+        return await this.http.delete(`issue-statuses/{issueStatusId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`issue-statuses/bulk_update_order`);
+        return await this.http.post<any>(`issue-statuses/bulk_update_order`, {}, this.request);
     }
 }

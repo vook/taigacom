@@ -1,34 +1,34 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class WikiAttachment extends AbstractService{
-    list(): AxiosPromise<>
+export class WikiAttachment extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`wiki/attachments`);
+        return await this.http.get<any>(`wiki/attachments`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`wiki/attachments`);
+        return await this.http.post<any>(`wiki/attachments`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`wiki/attachments/{wikiPageAttachmentId}`);
+        return await this.http.get<any>(`wiki/attachments/{wikiPageAttachmentId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`wiki/attachments/{wikiPageAttachmentId}`);
+        return await this.http.put<any>(`wiki/attachments/{wikiPageAttachmentId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`wiki/attachments/{wikiPageAttachmentId}`);
+        return await this.http.patch<any>(`wiki/attachments/{wikiPageAttachmentId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`wiki/attachments/{wikiPageAttachmentId}`);
+        return await this.http.delete(`wiki/attachments/{wikiPageAttachmentId}`, this.request);
     }
 }

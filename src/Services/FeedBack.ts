@@ -1,9 +1,8 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class FeedBack extends AbstractService{
-    sendFeedback(): AxiosPromise<>
+    async sendFeedback(): Promise<any>
     {
-        return axios.post(`feedback`);
+        return await this.http.post<any>(`feedback`, {}, this.request);
     }
 }

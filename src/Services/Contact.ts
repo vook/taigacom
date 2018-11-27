@@ -1,9 +1,9 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Contact extends AbstractService{
-    contactProject(): AxiosPromise<>
+export class Contact extends AbstractService
+{
+    async contactProject(): Promise<any>
     {
-        return axios.post(`contact`);
+        return await this.http.post<any>(`contact`, {}, this.request);
     }
 }

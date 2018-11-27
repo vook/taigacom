@@ -1,74 +1,74 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Task extends AbstractService{
-    list(): AxiosPromise<>
+export class Task extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`tasks`);
+        return await this.http.get<any>(`tasks`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`tasks`);
+        return await this.http.post<any>(`tasks`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`tasks/{taskId}`);
+        return await this.http.get<any>(`tasks/{taskId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`tasks/{taskId}`);
+        return await this.http.put<any>(`tasks/{taskId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`tasks/{taskId}`);
+        return await this.http.patch<any>(`tasks/{taskId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`tasks/{taskId}`);
+        return await this.http.delete(`tasks/{taskId}`, this.request);
     }
 
-    bulkCreate(): AxiosPromise<>
+    async bulkCreate(): Promise<any>
     {
-        return axios.post(`tasks/bulk_create`);
+        return await this.http.post<any>(`tasks/bulk_create`, {}, this.request);
     }
 
-    getFiltersData(): AxiosPromise<>
+    async getFiltersData(): Promise<any>
     {
-        return axios.get(`tasks/filters_data?project={projectId}`);
+        return await this.http.get<any>(`tasks/filters_data?project={projectId}`, this.request);
     }
 
-    addStar(): AxiosPromise<>
+    async addStar(): Promise<any>
     {
-        return axios.post(`tasks/{taskId}/upvote`);
+        return await this.http.post<any>(`tasks/{taskId}/upvote`, {}, this.request);
     }
 
-    removeStar(): AxiosPromise<>
+    async removeStar(): Promise<any>
     {
-        return axios.post(`tasks/{taskId}/downvote`);
+        return await this.http.post<any>(`tasks/{taskId}/downvote`, {}, this.request);
     }
 
-    getVoters(): AxiosPromise<>
+    async getVoters(): Promise<any>
     {
-        return axios.get(`tasks/{taskId}/voters`);
+        return await this.http.get<any>(`tasks/{taskId}/voters`, this.request);
     }
 
-    watch(): AxiosPromise<>
+    async watch(): Promise<any>
     {
-        return axios.post(`tasks/{taskId}/watch`);
+        return await this.http.post<any>(`tasks/{taskId}/watch`, {}, this.request);
     }
 
-    unwatch(): AxiosPromise<>
+    async unwatch(): Promise<any>
     {
-        return axios.post(`tasks/{taskId}/unwatch`);
+        return await this.http.post<any>(`tasks/{taskId}/unwatch`, {}, this.request);
     }
 
-    getWatchers(): AxiosPromise<>
+    async getWatchers(): Promise<any>
     {
-        return axios.get(`tasks/{taskId}/watchers`);
+        return await this.http.get<any>(`tasks/{taskId}/watchers`, this.request);
     }
 }

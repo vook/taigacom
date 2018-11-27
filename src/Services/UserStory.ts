@@ -1,94 +1,94 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class UserStory extends AbstractService{
-    list(): AxiosPromise<>
+export class UserStory extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`userstories`);
+        return await this.http.get<any>(`userstories`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`userstories`);
+        return await this.http.post<any>(`userstories`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`userstories/{userStoryId}`);
+        return await this.http.get<any>(`userstories/{userStoryId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`userstories/{userStoryId}`);
+        return await this.http.put<any>(`userstories/{userStoryId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`userstories/{userStoryId}`);
+        return await this.http.patch<any>(`userstories/{userStoryId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`userstories/{userStoryId}`);
+        return await this.http.delete(`userstories/{userStoryId}`, this.request);
     }
 
-    bulkCreate(): AxiosPromise<>
+    async bulkCreate(): Promise<any>
     {
-        return axios.post(`userstories/bulk_create`);
+        return await this.http.post<any>(`userstories/bulk_create`, {}, this.request);
     }
 
-    bulkUpdateBacklogOrder(): AxiosPromise<>
+    async bulkUpdateBacklogOrder(): Promise<any>
     {
-        return axios.post(`userstories/bulk_update_backlog_order`);
+        return await this.http.post<any>(`userstories/bulk_update_backlog_order`, {}, this.request);
     }
 
-    bulkUpdateKanbanOrder(): AxiosPromise<>
+    async bulkUpdateKanbanOrder(): Promise<any>
     {
-        return axios.post(`userstories/bulk_update_kanban_order`);
+        return await this.http.post<any>(`userstories/bulk_update_kanban_order`, {}, this.request);
     }
 
-    bulkUpdateSprintOrder(): AxiosPromise<>
+    async bulkUpdateSprintOrder(): Promise<any>
     {
-        return axios.post(`userstories/bulk_update_sprint_order`);
+        return await this.http.post<any>(`userstories/bulk_update_sprint_order`, {}, this.request);
     }
 
-    bulkUpdateMilestone(): AxiosPromise<>
+    async bulkUpdateMilestone(): Promise<any>
     {
-        return axios.post(`userstories/bulk_update_milestone`);
+        return await this.http.post<any>(`userstories/bulk_update_milestone`, {}, this.request);
     }
 
-    getFiltersData(): AxiosPromise<>
+    async getFiltersData(): Promise<any>
     {
-        return axios.get(`userstories/filters_data?project={projectId}`);
+        return await this.http.get<any>(`userstories/filters_data?project={projectId}`, this.request);
     }
 
-    addStar(): AxiosPromise<>
+    async addStar(): Promise<any>
     {
-        return axios.post(`userstories/{userStoryId}/upvote`);
+        return await this.http.post<any>(`userstories/{userStoryId}/upvote`, {}, this.request);
     }
 
-    removeStar(): AxiosPromise<>
+    async removeStar(): Promise<any>
     {
-        return axios.post(`userstories/{userStoryId}/downvote`);
+        return await this.http.post<any>(`userstories/{userStoryId}/downvote`, {}, this.request);
     }
 
-    getVoters(): AxiosPromise<>
+    async getVoters(): Promise<any>
     {
-        return axios.get(`userstories/{userStoryId}/voters`);
+        return await this.http.get<any>(`userstories/{userStoryId}/voters`, this.request);
     }
 
-    watch(): AxiosPromise<>
+    async watch(): Promise<any>
     {
-        return axios.post(`userstories/{userStoryId}/watch`);
+        return await this.http.post<any>(`userstories/{userStoryId}/watch`, {}, this.request);
     }
 
-    unwatch(): AxiosPromise<>
+    async unwatch(): Promise<any>
     {
-        return axios.post(`userstories/{userStoryId}/unwatch`);
+        return await this.http.post<any>(`userstories/{userStoryId}/unwatch`, {}, this.request);
     }
 
-    getWatchers(): AxiosPromise<>
+    async getWatchers(): Promise<any>
     {
-        return axios.get(`userstories/{userStoryId}/watchers`);
+        return await this.http.get<any>(`userstories/{userStoryId}/watchers`, this.request);
     }
 }

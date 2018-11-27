@@ -1,5 +1,4 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 import {IApplicationToken} from "../Models/IApplicationToken";
 import {IAuthorizationCode} from "../Models/IAutorizationCode";
 import {ICypheredToken} from "../Models/ICypheredToken";
@@ -10,9 +9,9 @@ export class ApplicationToken extends AbstractService
     /**
      * @link https://taigaio.github.io/taiga-doc/dist/api.html#application-tokens-list
      */
-    list(): AxiosPromise<IApplicationToken[]>
+    async list(): Promise<IApplicationToken[]>
     {
-        return axios.get(`application-tokens`, this.request);
+        return await this.http.get<any>(`application-tokens`, this.request);
     }
 
     /**
@@ -20,9 +19,9 @@ export class ApplicationToken extends AbstractService
      *
      * @param applicationTokenId
      */
-    get(applicationTokenId: number): AxiosPromise<IApplicationToken>
+    async get(applicationTokenId: number): Promise<IApplicationToken>
     {
-        return axios.get(`application-tokens/${applicationTokenId}`, this.request);
+        return await this.http.get<any>(`application-tokens/${applicationTokenId}`, this.request);
     }
 
     /**
@@ -30,9 +29,9 @@ export class ApplicationToken extends AbstractService
      *
      * @param applicationTokenId
      */
-    delete(applicationTokenId: number): AxiosPromise<void>
+    async delete(applicationTokenId: number): Promise<void>
     {
-        return axios.delete(`application-tokens/${applicationTokenId}`, this.request);
+        return await this.http.delete(`application-tokens/${applicationTokenId}`, this.request);
     }
 
     /**
@@ -41,9 +40,9 @@ export class ApplicationToken extends AbstractService
      * @param applicationId
      * @param state
      */
-    authorize(applicationId: number, state: string): AxiosPromise<IAuthorizationCode>
+    async authorize(applicationId: number, state: string): Promise<IAuthorizationCode>
     {
-        return axios.post(`application-tokens/authorize`,{
+        return await this.http.post<any>(`application-tokens/authorize`,{
                 application: applicationId,
                 state: state
             }, this.request
@@ -56,12 +55,12 @@ export class ApplicationToken extends AbstractService
      * @param applicationId
      * @param state
      */
-    validate(applicationId: number, state: string): AxiosPromise<ICypheredToken>
+    async validate(applicationId: number, state: string): Promise<ICypheredToken>
     {
-        return axios.post(`application-tokens/validate`, {
-            application: applicationId,
-            state: state
-        }, this.request
+        return await this.http.post<any>(`application-tokens/validate`, {
+                application: applicationId,
+                state: state
+            }, this.request
         );
     }
 }

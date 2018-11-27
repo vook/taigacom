@@ -1,39 +1,39 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class UserStoryCustomAttribute extends AbstractService{
-    list(): AxiosPromise<>
+export class UserStoryCustomAttribute extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`userstory-custom-attributes`);
+        return await this.http.get<any>(`userstory-custom-attributes`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`userstory-custom-attributes`);
+        return await this.http.post<any>(`userstory-custom-attributes`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
+        return await this.http.get<any>(`userstory-custom-attributes/{userStoryCustomAttributeId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
+        return await this.http.put<any>(`userstory-custom-attributes/{userStoryCustomAttributeId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
+        return await this.http.patch<any>(`userstory-custom-attributes/{userStoryCustomAttributeId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`userstory-custom-attributes/{userStoryCustomAttributeId}`);
+        return await this.http.delete(`userstory-custom-attributes/{userStoryCustomAttributeId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`userstory-custom-attributes/bulk_update_order`);
+        return await this.http.post<any>(`userstory-custom-attributes/bulk_update_order`, {}, this.request);
     }
 }

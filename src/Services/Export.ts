@@ -1,9 +1,8 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Export extends AbstractService{
-    ProjectDump(): AxiosPromise<>
+    async ProjectDump(): Promise<any>
     {
-        return axios.get(`exporter/{projectId}`);
+        return await this.http.get<any>(`exporter/{projectId}`, this.request);
     }
 }

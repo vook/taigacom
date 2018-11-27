@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IUserFilterData {
     assigned_to?: (AssignedToEntity)[] | null;
     epics?: (EpicsEntity)[] | null;
     owners?: (OwnersEntity)[] | null;

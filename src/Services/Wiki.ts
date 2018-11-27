@@ -1,49 +1,49 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Wiki extends AbstractService{
-    list(): AxiosPromise<>
+export class Wiki extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`wiki`);
+        return await this.http.get<any>(`wiki`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`wiki`);
+        return await this.http.post<any>(`wiki`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`wiki/{wikiId}`);
+        return await this.http.get<any>(`wiki/{wikiId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`wiki/{wikiPageId}`);
+        return await this.http.put<any>(`wiki/{wikiPageId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`wiki/{wikiPageId}`);
+        return await this.http.patch<any>(`wiki/{wikiPageId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`wiki/{wikiPageId}`);
+        return await this.http.delete(`wiki/{wikiPageId}`, this.request);
     }
 
-    watch(): AxiosPromise<>
+    async watch(): Promise<any>
     {
-        return axios.post(`wiki/{wikiPageId}/watch`);
+        return await this.http.post<any>(`wiki/{wikiPageId}/watch`, {}, this.request);
     }
 
-    unwatch(): AxiosPromise<>
+    async unwatch(): Promise<any>
     {
-        return axios.post(`v1/wiki/{wikiPageId}/unwatch`);
+        return await this.http.post<any>(`v1/wiki/{wikiPageId}/unwatch`, {}, this.request);
     }
 
-    getWatchers(): AxiosPromise<>
+    async getWatchers(): Promise<any>
     {
-        return axios.get(`wiki/{wikiPageId}/watchers`);
+        return await this.http.get<any>(`wiki/{wikiPageId}/watchers`, this.request);
     }
 }

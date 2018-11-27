@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IEpicCustomAttributeValue {
     attributes_values: AttributesValues;
     epic: number;
     version: number;

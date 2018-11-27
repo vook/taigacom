@@ -1,18 +1,18 @@
-import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 import {IApplication} from "../Models/IApplication";
 import {IApplicationToken} from "../Models/IApplicationToken";
+import {AbstractLoggedService} from "../Abstracts/AbstractLoggedService";
 
-export class Application extends AbstractService
+export class Application extends AbstractLoggedService
 {
     /**
      * @link https://taigaio.github.io/taiga-doc/dist/api.html#applications-get
      *
      * @param id
      */
-    get(id: number): AxiosPromise<IApplication[]>
+    async get(id: number): Promise<IApplication[]>
     {
-        return axios.get(`applications/${id}`, this.request);
+        await this.resolveToken();
+        return await this.http.get<IApplication[]>(`applications/${id}`, this.request);
     }
 
     /**
@@ -20,8 +20,9 @@ export class Application extends AbstractService
      *
      * @param id
      */
-    getToken(id: number): AxiosPromise<IApplicationToken>
+    async getToken(id: number): Promise<IApplicationToken>
     {
-        return axios.get(`applications/${id}/token`, this.request);
+        await this.resolveToken();
+        return await this.http.get<IApplicationToken>(`applications/${id}/token`, this.request);
     }
 }

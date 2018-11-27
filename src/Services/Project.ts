@@ -1,164 +1,165 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
+import {IProject} from "../Models/IProject";
 
-export class Project extends AbstractService{
-    list(): AxiosPromise<>
+export class Project extends AbstractService
+{
+    async list(): Promise<IProject[]>
     {
-        return axios.get(`projects`);
+        return await this.http.get<any>(`projects`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`projects`);
+        return await this.http.post<any>(`projects`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`projects/{projectId}`);
+        return await this.http.get<any>(`projects/{projectId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`projects/{projectId}`);
+        return await this.http.put<any>(`projects/{projectId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`projects/{projectId}`);
+        return await this.http.patch<any>(`projects/{projectId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`projects/{projectId}`);
+        return await this.http.delete(`projects/{projectId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`projects/bulk_update_order`);
+        return await this.http.post<any>(`projects/bulk_update_order`, {}, this.request);
     }
 
-    getModules(): AxiosPromise<>
+    async getModules(): Promise<any>
     {
-        return axios.get(`projects/{projectId}/modules`);
+        return await this.http.get<any>(`projects/{projectId}/modules`, this.request);
     }
 
-    modifyPartiallyModules(): AxiosPromise<>
+    async modifyPartiallyModules(): Promise<any>
     {
-        return axios.patch(`projects/{projectId}/modules`);
+        return await this.http.patch<any>(`projects/{projectId}/modules`, {}, this.request);
     }
 
-    getStats(): AxiosPromise<>
+    async getStats(): Promise<any>
     {
-        return axios.get(`projects/{projectId}/stats`);
+        return await this.http.get<any>(`projects/{projectId}/stats`, this.request);
     }
 
-    getIssueStats(): AxiosPromise<>
+    async getIssueStats(): Promise<any>
     {
-        return axios.get(`projects/{projectId}/issues_stats`);
+        return await this.http.get<any>(`projects/{projectId}/issues_stats`, this.request);
     }
 
-    getTagsColors(): AxiosPromise<>
+    async getTagsColors(): Promise<any>
     {
-        return axios.get(`projects/{projectId}/tags_colors`);
+        return await this.http.get<any>(`projects/{projectId}/tags_colors`, this.request);
     }
 
-    createTag(): AxiosPromise<>
+    async createTag(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/create_tag`);
+        return await this.http.post<any>(`projects/{projectId}/create_tag`, {}, this.request);
     }
 
-    editTag(): AxiosPromise<>
+    async editTag(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/edit_tag`);
+        return await this.http.post<any>(`projects/{projectId}/edit_tag`, {}, this.request);
     }
 
-    deleteTag(): AxiosPromise<>
+    async deleteTag(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/delete_tag`);
+        return await this.http.post<any>(`projects/{projectId}/delete_tag`, {}, this.request);
     }
 
-    mixTags(): AxiosPromise<>
+    async mixTags(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/mix_tags`);
+        return await this.http.post<any>(`projects/{projectId}/mix_tags`, {}, this.request);
     }
 
-    like(): AxiosPromise<>
+    async like(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/like`);
+        return await this.http.post<any>(`projects/{projectId}/like`, {}, this.request);
     }
 
-    unlike(): AxiosPromise<>
+    async unlike(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/unlike`);
+        return await this.http.post<any>(`projects/{projectId}/unlike`, {}, this.request);
     }
 
-    getFans(): AxiosPromise<>
+    async getFans(): Promise<any>
     {
-        return axios.get(`projects/{projectId}/fans`);
+        return await this.http.get<any>(`projects/{projectId}/fans`, this.request);
     }
 
-    watch(): AxiosPromise<>
+    async watch(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/watch`);
+        return await this.http.post<any>(`projects/{projectId}/watch`, {}, this.request);
     }
 
-    unwatch(): AxiosPromise<>
+    async unwatch(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/unwatch`);
+        return await this.http.post<any>(`projects/{projectId}/unwatch`, {}, this.request);
     }
 
-    getWatchers(): AxiosPromise<>
+    async getWatchers(): Promise<any>
     {
-        return axios.get(`projects/{projectId}/watchers`);
+        return await this.http.get<any>(`projects/{projectId}/watchers`, this.request);
     }
 
-    createTemplate(): AxiosPromise<>
+    async createTemplate(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/create_template`);
+        return await this.http.post<any>(`projects/{projectId}/create_template`, {}, this.request);
     }
 
-    leave(): AxiosPromise<>
+    async leave(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/leave`);
+        return await this.http.post<any>(`projects/{projectId}/leave`, {}, this.request);
     }
 
-    changeLogo(): AxiosPromise<>
+    async changeLogo(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/change_logo`);
+        return await this.http.post<any>(`projects/{projectId}/change_logo`, {}, this.request);
     }
 
-    removeLogo(): AxiosPromise<>
+    async removeLogo(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/remove_logo`);
+        return await this.http.post<any>(`projects/{projectId}/remove_logo`, {}, this.request);
     }
 
-    transferValidateToken(): AxiosPromise<>
+    async transferValidateToken(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/transfer_validate_token`);
+        return await this.http.post<any>(`projects/{projectId}/transfer_validate_token`, {}, this.request);
     }
 
-    transferRequest(): AxiosPromise<>
+    async transferRequest(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/transfer_request`);
+        return await this.http.post<any>(`projects/{projectId}/transfer_request`, {}, this.request);
     }
 
-    transferStart(): AxiosPromise<>
+    async transferStart(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/transfer_start`);
+        return await this.http.post<any>(`projects/{projectId}/transfer_start`, {}, this.request);
     }
 
-    transferAccept(): AxiosPromise<>
+    async transferAccept(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/transfer_accept`);
+        return await this.http.post<any>(`projects/{projectId}/transfer_accept`, {}, this.request);
     }
 
-    transferReject(): AxiosPromise<>
+    async transferReject(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/transfer_reject`);
+        return await this.http.post<any>(`projects/{projectId}/transfer_reject`, {}, this.request);
     }
 
-    duplicateProject(): AxiosPromise<>
+    async duplicateProject(): Promise<any>
     {
-        return axios.post(`projects/{projectId}/duplicate`);
+        return await this.http.post<any>(`projects/{projectId}/duplicate`, {}, this.request);
     }
 }

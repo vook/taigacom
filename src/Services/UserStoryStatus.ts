@@ -1,39 +1,39 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class UserStoryStatus extends AbstractService{
-    list(): AxiosPromise<>
+export class UserStoryStatus extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`userstory-statuses`);
+        return await this.http.get<any>(`userstory-statuses`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`userstory-statuses`);
+        return await this.http.post<any>(`userstory-statuses`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`userstory-statuses/{userStoryStatusId}`);
+        return await this.http.get<any>(`userstory-statuses/{userStoryStatusId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`userstory-statuses/{userStoryStatusId}`);
+        return await this.http.put<any>(`userstory-statuses/{userStoryStatusId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`userstory-statuses/{userStoryStatusId}`);
+        return await this.http.patch<any>(`userstory-statuses/{userStoryStatusId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`userstory-statuses/{userStoryStatusId}`);
+        return await this.http.delete(`userstory-statuses/{userStoryStatusId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`userstory-statuses/bulk_update_order`);
+        return await this.http.post<any>(`userstory-statuses/bulk_update_order`, {}, this.request);
     }
 }

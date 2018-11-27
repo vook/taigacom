@@ -1,5 +1,4 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 import {ISearchResult} from "../Models/ISearchResult";
 
 export class Search extends AbstractService
@@ -11,9 +10,9 @@ export class Search extends AbstractService
      * @param projectId
      * @param text
      */
-    searchInProject(projectId: number, text: string): AxiosPromise<ISearchResult>
+    async searchInProject(projectId: number, text: string): Promise<ISearchResult>
     {
-        return axios.get(`search`, this.request
+        return await this.http.get<any>(`search`, this.request
             .addParam('project', projectId)
             .addParam('text', text)
         );

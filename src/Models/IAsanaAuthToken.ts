@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IAsanaAuthToken {
     token: Token;
 }
 export interface Token {

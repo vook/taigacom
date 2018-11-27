@@ -1,75 +1,74 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class Epic extends AbstractService{
-    list(): AxiosPromise<>
+export class Epic extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`epics`);
+        return await this.http.get<any>(`epics`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`epics`);
+        return await this.http.post<any>(`epics`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`epics/{epicId}`);
+        return await this.http.get<any>(`epics/{epicId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`epics/{epicId}`);
+        return await this.http.put<any>(`epics/{epicId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`epics/{epicId}`);
+        return await this.http.patch<any>(`epics/{epicId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`epics/{epicId}`);
+        return await this.http.delete(`epics/{epicId}`, this.request);
     }
 
-
-    bulkCreate(): AxiosPromise<>
+    async bulkCreate(): Promise<any>
     {
-        return axios.post(`epics/bulk_create`);
+        return await this.http.post<any>(`epics/bulk_create`, {}, this.request);
     }
 
-    getFiltersData(): AxiosPromise<>
+    async getFiltersData(): Promise<any>
     {
-        return axios.get(`epics/filters_data?project={projectId}`);
+        return await this.http.get<any>(`epics/filters_data?project={projectId}`, this.request);
     }
 
-    addStar(): AxiosPromise<>
+    async addStar(): Promise<any>
     {
-        return axios.post(`epics/{epicId}/upvote`);
+        return await this.http.post<any>(`epics/{epicId}/upvote`, {}, this.request);
     }
 
-    removeStar(): AxiosPromise<>
+    async removeStar(): Promise<any>
     {
-        return axios.post(`epics/{epicId}/downvote`);
+        return await this.http.post<any>(`epics/{epicId}/downvote`, {}, this.request);
     }
 
-    getVoters(): AxiosPromise<>
+    async getVoters(): Promise<any>
     {
-        return axios.get(`epics/{epicId}/voters`);
+        return await this.http.get<any>(`epics/{epicId}/voters`, this.request);
     }
 
-    watch(): AxiosPromise<>
+    async watch(): Promise<any>
     {
-        return axios.post(`epics/{epicId}/watch`);
+        return await this.http.post<any>(`epics/{epicId}/watch`, {}, this.request);
     }
 
-    unwatch(): AxiosPromise<>
+    async unwatch(): Promise<any>
     {
-        return axios.post(`epics/{epicId}/unwatch`);
+        return await this.http.post<any>(`epics/{epicId}/unwatch`, {}, this.request);
     }
 
-    getWatchers(): AxiosPromise<>
+    async getWatchers(): Promise<any>
     {
-        return axios.get(`epics/{epicId}/watchers`);
+        return await this.http.get<any>(`epics/{epicId}/watchers`, this.request);
     }
 }

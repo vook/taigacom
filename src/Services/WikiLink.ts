@@ -1,34 +1,34 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class WikiLink extends AbstractService{
-    list(): AxiosPromise<>
+export class WikiLink extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`wiki-links`);
+        return await this.http.get<any>(`wiki-links`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`wiki-links`);
+        return await this.http.post<any>(`wiki-links`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`wiki-links/{wikiLinkId}`);
+        return await this.http.get<any>(`wiki-links/{wikiLinkId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`wiki-links/{wikiLinkId}`);
+        return await this.http.put<any>(`wiki-links/{wikiLinkId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`wiki-links/{wikiLinkId}`);
+        return await this.http.patch<any>(`wiki-links/{wikiLinkId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`wiki-links/{wikiLinkId}`);
+        return await this.http.delete(`wiki-links/{wikiLinkId}`, this.request);
     }
 }

@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IWikiLink {
     href: string;
     id: number;
     order: number;

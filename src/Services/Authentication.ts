@@ -1,17 +1,17 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 import {IAuthentication} from "../Models/IAuthentication";
 import {IUser} from "../Models/IUser";
 
-export class Authentication extends AbstractService{
+export class Authentication extends AbstractService
+{
     /**
      *
      * @param username
      * @param password
      */
-    normalAuth(username: string, password: string): AxiosPromise<IAuthentication>
+    async normalAuth(username: string, password: string): Promise<IAuthentication>
     {
-        return axios.post('auth', {
+        return await this.http.post<any>('auth', {
             type: 'normal',
             username: username,
             password: password
@@ -23,13 +23,14 @@ export class Authentication extends AbstractService{
      * @param code
      * @param token
      */
-    githubAuth(code: string, token: string): AxiosPromise<IAuthentication>
+    async githubAuth(code: string, token: string): Promise<IAuthentication>
     {
-        return axios.post('auth', {
-            type: 'github',
-            code: code,
-            token: token
-        }, this.request);
+        return await this.http.post<any>('auth', {
+                type: 'github',
+                code: code,
+                token: token
+            }, this.request
+        );
     }
 
     /**
@@ -39,19 +40,21 @@ export class Authentication extends AbstractService{
      * @param email
      * @param fullName
      */
-    publicRegister(
+    async publicRegister(
         username: string,
         password: string,
         email: string,
         fullName: string
-    ): AxiosPromise<IUserDetail> {
-        return axios.post<IUserDetail>('register', {
-            type: 'public',
-            username: username,
-            password: password,
-            email: email,
-            full_name: fullName
-        }, this.request);
+    ): Promise<IUser>
+    {
+        return await this.http.post<IUser>('register', {
+                type: 'public',
+                username: username,
+                password: password,
+                email: email,
+                full_name: fullName
+            }, this.request
+        );
     }
 
     /**
@@ -63,22 +66,24 @@ export class Authentication extends AbstractService{
      * @param email
      * @param fullName
      */
-    privateRegister(
+    async privateRegister(
         username: string,
         password: string,
         token: string,
         exist: boolean,
         email?: string,
         fullName?: string
-    ): AxiosPromise<IUser> {
-        return axios.post<IUser>('register', {
-            type: 'private',
-            username: username,
-            password: password,
-            token: token,
-            existing: exist,
-            email: email,
-            full_name: fullName
-        }, this.request);
+    ): Promise<IUser>
+    {
+        return await this.http.post<IUser>('register', {
+                type: 'private',
+                username: username,
+                password: password,
+                token: token,
+                existing: exist,
+                email: email,
+                full_name: fullName
+            }, this.request
+        );
     }
 }

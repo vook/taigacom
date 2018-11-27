@@ -1,19 +1,19 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class TaskCustomAttributeValue extends AbstractService{
-    get(): AxiosPromise<>
+export class TaskCustomAttributeValue extends AbstractService
+{
+    async get(): Promise<any>
     {
-        return axios.get(`custom-attributes-values/{taskId}`);
+        return await this.http.get<any>(`custom-attributes-values/{taskId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`tasks/custom-attributes-values/{taskId}`);
+        return await this.http.put<any>(`tasks/custom-attributes-values/{taskId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`tasks/custom-attributes-values/{taskId}`);
+        return await this.http.patch<any>(`tasks/custom-attributes-values/{taskId}`, {}, this.request);
     }
 }

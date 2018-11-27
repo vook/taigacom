@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IWatched {
     assigned_to: number;
     assigned_to_extra_info: AssignedToExtraInfo;
     created_date: string;

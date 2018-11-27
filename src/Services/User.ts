@@ -1,94 +1,94 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class User extends AbstractService{
-    list(): AxiosPromise<>
+export class User extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`users`);
+        return await this.http.get<any>(`users`, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`/api/v1/users/{userId}`);
+        return await this.http.get<any>(`/api/v1/users/{userId}`, this.request);
     }
 
-    getMe(): AxiosPromise<>
+    async getMe(): Promise<any>
     {
-        return axios.get(`users/me`);
+        return await this.http.get<any>(`users/me`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`users/{userId}`);
+        return await this.http.put<any>(`users/{userId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`users/{userId}`);
+        return await this.http.patch<any>(`users/{userId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`users/{userId}`);
+        return await this.http.delete(`users/{userId}`, this.request);
     }
 
-    getStats(): AxiosPromise<>
+    async getStats(): Promise<any>
     {
-        return axios.get(`users/{userId}/stats`);
+        return await this.http.get<any>(`users/{userId}/stats`, this.request);
     }
 
-    getWatched(): AxiosPromise<>
+    async getWatched(): Promise<any>
     {
-        return axios.get(`users/{userId}/watched`);
+        return await this.http.get<any>(`users/{userId}/watched`, this.request);
     }
 
-    getLiked(): AxiosPromise<>
+    async getLiked(): Promise<any>
     {
-        return axios.get(`users/{userId}/liked`);
+        return await this.http.get<any>(`users/{userId}/liked`, this.request);
     }
 
-    getVoted(): AxiosPromise<>
+    async getVoted(): Promise<any>
     {
-        return axios.get(`users/{userId}/voted`);
+        return await this.http.get<any>(`users/{userId}/voted`, this.request);
     }
 
-    getContacts(): AxiosPromise<>
+    async getContacts(): Promise<any>
     {
-        return axios.get(`users/{userId}/contacts`);
+        return await this.http.get<any>(`users/{userId}/contacts`, this.request);
     }
 
-    cancel(): AxiosPromise<>
+    async cancel(): Promise<any>
     {
-        return axios.post(`users/cancel`);
+        return await this.http.post<any>(`users/cancel`, {}, this.request);
     }
 
-    changeAvatar(): AxiosPromise<>
+    async changeAvatar(): Promise<any>
     {
-        return axios.post(`users/change_avatar`);
+        return await this.http.post<any>(`users/change_avatar`, {}, this.request);
     }
 
-    removeAvatar(): AxiosPromise<>
+    async removeAvatar(): Promise<any>
     {
-        return axios.post(`users/remove_avatar`);
+        return await this.http.post<any>(`users/remove_avatar`, {}, this.request);
     }
 
-    changeEmail(): AxiosPromise<>
+    async changeEmail(): Promise<any>
     {
-        return axios.post(`users/change_email`);
+        return await this.http.post<any>(`users/change_email`, {}, this.request);
     }
 
-    changePassword(): AxiosPromise<>
+    async changePassword(): Promise<any>
     {
-        return axios.post(`users/change_password`);
+        return await this.http.post<any>(`users/change_password`, {}, this.request);
     }
 
-    recoverPassword(): AxiosPromise<>
+    async recoverPassword(): Promise<any>
     {
-        return axios.post(`users/password_recovery`);
+        return await this.http.post<any>(`users/password_recovery`, {}, this.request);
     }
 
-    changePasswordFromRecovery(): AxiosPromise<>
+    async changePasswordFromRecovery(): Promise<any>
     {
-        return axios.post(`users/change_password_from_recovery`);
+        return await this.http.post<any>(`users/change_password_from_recovery`, {}, this.request);
     }
 }

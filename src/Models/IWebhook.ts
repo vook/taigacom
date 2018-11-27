@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IWebhook {
     id: number;
     key: string;
     logs_counter: number;

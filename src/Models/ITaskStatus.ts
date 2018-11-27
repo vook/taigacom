@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ITaskStatus {
     color: string;
     id: number;
     is_closed: boolean;

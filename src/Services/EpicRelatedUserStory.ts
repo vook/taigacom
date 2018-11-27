@@ -1,39 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class EpicRelatedUserStory extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`epics/{epicId}/related_userstories`);
+        return await this.http.get<any>(`epics/{epicId}/related_userstories`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`epics/{epicId}/related_userstories`);
+        return await this.http.post<any>(`epics/{epicId}/related_userstories`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`epics/{epicId}/related_userstories/{userStoryId}`);
+        return await this.http.get<any>(`epics/{epicId}/related_userstories/{userStoryId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`epics/{epicId}/related_userstories/{userStoryId}`);
+        return await this.http.put<any>(`epics/{epicId}/related_userstories/{userStoryId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`epics/{epicId}/related_userstories/{userStoryId}`);
+        return await this.http.patch<any>(`epics/{epicId}/related_userstories/{userStoryId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`epics/{epicId}/related_userstories/{userStoryId}`);
+        return await this.http.delete(`epics/{epicId}/related_userstories/{userStoryId}`, this.request);
     }
 
-    bulkCreate(): AxiosPromise<>
+    async bulkCreate(): Promise<any>
     {
-        return axios.post(`epics/{epicId}/related_userstories/bulk_create`);
+        return await this.http.post<any>(`epics/{epicId}/related_userstories/bulk_create`, {}, this.request);
     }
 }

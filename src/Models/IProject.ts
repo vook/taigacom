@@ -1,5 +1,24 @@
-export interface IProject {
-    anon_permissions?: (null)[] | null;
+import {IEpicCustomAttribute} from "./IEpicCustomAttribute";
+import {IEpicStatus} from "./IEpicStatus";
+import {IIssueCustomAttribute} from "./IIssueCustomAttribute";
+import {IIssueStatus} from "./IIssueStatus";
+import {IIssueType} from "./IIssueType";
+import {IMember} from "./IMember";
+import {IMilestone} from "./IMilestone";
+import {IUser} from "./IUser";
+import {IPoint} from "./IPoint";
+import {IPriority} from "./IPriority";
+import {IRole} from "./IRole";
+import {ISeverity} from "./ISeverity";
+import {ITaskCustomAttribute} from "./ITaskCustomAttribute";
+import {ITaskStatus} from "./ITaskStatus";
+import {IUserStoryCustomAttribute} from "./IUserStoryCustomAttribute";
+import {IPrivateExtraInfo} from "./IPrivateExtraInfo";
+import {IStatus} from "./IStatus";
+
+export interface IProject
+{
+    anon_permissions?: any[] | null;
     blocked_code?: null;
     created_date: string;
     creation_template?: null;
@@ -12,8 +31,8 @@ export interface IProject {
     default_task_status?: null;
     default_us_status?: null;
     description: string;
-    epic_custom_attributes?: (EpicCustomAttributesEntityOrIssueCustomAttributesEntityOrTaskCustomAttributesEntityOrUserstoryCustomAttributesEntity)[] | null;
-    epic_statuses?: (EpicStatusesEntityOrIssueStatusesEntityOrTaskStatusesEntity)[] | null;
+    epic_custom_attributes?: IEpicCustomAttribute[];
+    epic_statuses?: IEpicStatus[];
     epics_csv_uuid?: null;
     i_am_admin: boolean;
     i_am_member: boolean;
@@ -29,34 +48,34 @@ export interface IProject {
     is_looking_for_people: boolean;
     is_out_of_owner_limits: boolean;
     is_private: boolean;
-    is_private_extra_info: IsPrivateExtraInfo;
+    is_private_extra_info: IPrivateExtraInfo;
     is_watcher: boolean;
     is_wiki_activated: boolean;
-    issue_custom_attributes?: (EpicCustomAttributesEntityOrIssueCustomAttributesEntityOrTaskCustomAttributesEntityOrUserstoryCustomAttributesEntity)[] | null;
-    issue_statuses?: (EpicStatusesEntityOrIssueStatusesEntityOrTaskStatusesEntity)[] | null;
-    issue_types?: (IssueTypesEntityOrPrioritiesEntityOrSeveritiesEntity)[] | null;
+    issue_custom_attributes?: IIssueCustomAttribute[];
+    issue_statuses?: IIssueStatus[];
+    issue_types?: IIssueType[];
     issues_csv_uuid?: null;
     logo_big_url: string;
     logo_small_url: string;
     looking_for_people_note: string;
     max_memberships?: null;
-    members?: (MembersEntity)[] | null;
-    milestones?: (MilestonesEntity)[] | null;
+    members?: IMember[];
+    milestones?: IMilestone[];
     modified_date: string;
     my_permissions?: (string)[] | null;
     name: string;
     notify_level: number;
-    owner: Owner;
-    points?: (PointsEntity)[] | null;
-    priorities?: (IssueTypesEntityOrPrioritiesEntityOrSeveritiesEntity)[] | null;
-    public_permissions?: (null)[] | null;
-    roles?: (RolesEntity)[] | null;
-    severities?: (IssueTypesEntityOrPrioritiesEntityOrSeveritiesEntity)[] | null;
+    owner: IUser;
+    points?: IPoint[];
+    priorities?: IPriority[];
+    public_permissions?: any[];
+    roles?: IRole[];
+    severities?: ISeverity[];
     slug: string;
-    tags?: (null)[] | null;
-    tags_colors: TagsColors;
-    task_custom_attributes?: (EpicCustomAttributesEntityOrIssueCustomAttributesEntityOrTaskCustomAttributesEntityOrUserstoryCustomAttributesEntity)[] | null;
-    task_statuses?: (EpicStatusesEntityOrIssueStatusesEntityOrTaskStatusesEntity)[] | null;
+    tags?: string[];
+    tags_colors: {};
+    task_custom_attributes?: ITaskCustomAttribute[];
+    task_statuses?: ITaskStatus[];
     tasks_csv_uuid?: null;
     total_activity: number;
     total_activity_last_month: number;
@@ -73,95 +92,9 @@ export interface IProject {
     total_watchers: number;
     totals_updated_datetime: string;
     transfer_token: string;
-    us_statuses?: (UsStatusesEntity)[] | null;
+    us_statuses?: IStatus;
     userstories_csv_uuid?: null;
-    userstory_custom_attributes?: (EpicCustomAttributesEntityOrIssueCustomAttributesEntityOrTaskCustomAttributesEntityOrUserstoryCustomAttributesEntity)[] | null;
+    userstory_custom_attributes?: IUserStoryCustomAttribute[];
     videoconferences?: null;
     videoconferences_extra_data?: null;
-}
-export interface EpicCustomAttributesEntityOrIssueCustomAttributesEntityOrTaskCustomAttributesEntityOrUserstoryCustomAttributesEntity {
-    created_date: string;
-    description: string;
-    id: number;
-    modified_date: string;
-    name: string;
-    order: number;
-    project_id: number;
-    type: string;
-}
-export interface EpicStatusesEntityOrIssueStatusesEntityOrTaskStatusesEntity {
-    color: string;
-    id: number;
-    is_closed: boolean;
-    name: string;
-    order: number;
-    project_id: number;
-    slug: string;
-}
-export interface IsPrivateExtraInfo {
-    can_be_updated: boolean;
-    reason?: null;
-}
-export interface IssueTypesEntityOrPrioritiesEntityOrSeveritiesEntity {
-    color: string;
-    id: number;
-    name: string;
-    order: number;
-    project_id: number;
-}
-export interface MembersEntity {
-    color: string;
-    full_name: string;
-    full_name_display: string;
-    gravatar_id: string;
-    id: number;
-    is_active: boolean;
-    photo?: null;
-    role: number;
-    role_name: string;
-    username: string;
-}
-export interface MilestonesEntity {
-    closed: boolean;
-    id: number;
-    name: string;
-    slug: string;
-}
-export interface Owner {
-    big_photo?: null;
-    full_name_display: string;
-    gravatar_id: string;
-    id: number;
-    is_active: boolean;
-    photo?: null;
-    username: string;
-}
-export interface PointsEntity {
-    id: number;
-    name: string;
-    order: number;
-    project_id: number;
-    value?: number | null;
-}
-export interface RolesEntity {
-    computable: boolean;
-    id: number;
-    name: string;
-    order: number;
-    permissions?: (string)[] | null;
-    project_id: number;
-    slug: string;
-}
-export interface TagsColors {
-}
-export interface UsStatusesEntity {
-    color: string;
-    id: number;
-    is_archived: boolean;
-    is_closed: boolean;
-    name: string;
-    order: number;
-    project_id: number;
-    slug: string;
-    wip_limit?: null;
 }

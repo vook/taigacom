@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IIssueCustomAttribute {
     created_date: string;
     description: string;
     id: number;

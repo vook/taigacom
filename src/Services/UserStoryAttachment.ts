@@ -1,35 +1,35 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class UserStoryAttachment extends AbstractService{
-    list(): AxiosPromise<>
+export class UserStoryAttachment extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`userstories/attachments`);
+        return await this.http.get<any>(`userstories/attachments`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`userstories/attachments`);
+        return await this.http.post<any>(`userstories/attachments`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`userstories/attachments/{userStoryAttachmentId}`);
+        return await this.http.get<any>(`userstories/attachments/{userStoryAttachmentId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`userstories/attachments/{userStoryAttachmentId}`);
+        return await this.http.put<any>(`userstories/attachments/{userStoryAttachmentId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`userstories/attachments/{userStoryAttachmentId}`);
+        return await this.http.patch<any>(`userstories/attachments/{userStoryAttachmentId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`userstories/attachments/{userStoryAttachmentId}`);
+        return await this.http.delete(`userstories/attachments/{userStoryAttachmentId}`, this.request);
     }
 
 }

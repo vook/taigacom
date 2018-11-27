@@ -1,19 +1,18 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class IssueCustomAttributeValue extends AbstractService{
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`issues/custom-attributes-values/{issueId}`);
+        return await this.http.get<any>(`issues/custom-attributes-values/{issueId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`issues/custom-attributes-values/{issueId}`);
+        return await this.http.put<any>(`issues/custom-attributes-values/{issueId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`issues/custom-attributes-values/{issueId}`);
+        return await this.http.patch<any>(`issues/custom-attributes-values/{issueId}`, {}, this.request);
     }
 }

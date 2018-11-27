@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface INotifyPolicy {
     id: number;
     notify_level: number;
     project: number;

@@ -1,6 +1,17 @@
-export interface IXXX {
+import {IEpicStatus} from "./IEpicStatus";
+import {IIssueStatus} from "./IIssueStatus";
+import {IIssueType} from "./IIssueType";
+import {IPoint} from "./IPoint";
+import {IPriority} from "./IPriority";
+import {IRole} from "./IRole";
+import {ISeverity} from "./ISeverity";
+import {ITaskStats} from "./ITaskStats";
+import {IStatus} from "./IStatus";
+import {IDefaultOptions} from "./IDefaultOptions";
+
+export interface IProjectTemplate {
     created_date: string;
-    default_options: DefaultOptions;
+    default_options: IDefaultOptions;
     default_owner_role: string;
     description: string;
     epic_statuses?: IEpicStatus[];
@@ -25,14 +36,4 @@ export interface IXXX {
     us_statuses?: IStatus[];
     videoconferences?: null;
     videoconferences_extra_data: string;
-}
-export interface DefaultOptions {
-    epic_status: string;
-    issue_status: string;
-    issue_type: string;
-    points: string;
-    priority: string;
-    severity: string;
-    task_status: string;
-    us_status: string;
 }

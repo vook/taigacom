@@ -1,39 +1,39 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class TaskCustomAttribute extends AbstractService{
-    list(): AxiosPromise<>
+export class TaskCustomAttribute extends AbstractService
+{
+    async list(): Promise<any>
     {
-        return axios.get(`task-custom-attributes`);
+        return await this.http.get<any>(`task-custom-attributes`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`task-custom-attributes`);
+        return await this.http.post<any>(`task-custom-attributes`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`task-custom-attributes/{taskCustomAttributeId}`);
+        return await this.http.get<any>(`task-custom-attributes/{taskCustomAttributeId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`task-custom-attributes/{taskCustomAttributeId}`);
+        return await this.http.put<any>(`task-custom-attributes/{taskCustomAttributeId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`task-custom-attributes/{taskCustomAttributeId}`);
+        return await this.http.patch<any>(`task-custom-attributes/{taskCustomAttributeId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`task-custom-attributes/{taskCustomAttributeId}`);
+        return await this.http.delete(`task-custom-attributes/{taskCustomAttributeId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`task-custom-attributes/bulk_update_order`);
+        return await this.http.post<any>(`task-custom-attributes/bulk_update_order`, {}, this.request);
     }
 }

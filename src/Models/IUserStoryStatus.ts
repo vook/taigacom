@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IUserStoryStatus {
     color: string;
     id: number;
     is_archived: boolean;

@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IDiscover {
     projects: Projects;
 }
 export interface Projects {

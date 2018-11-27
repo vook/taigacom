@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IMilestoneStats {
     completed_points?: (number)[] | null;
     completed_tasks: number;
     completed_userstories: number;

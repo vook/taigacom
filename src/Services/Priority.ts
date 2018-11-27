@@ -1,39 +1,38 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
 export class Priority extends AbstractService{
-    list(): AxiosPromise<>
+    async list(): Promise<any>
     {
-        return axios.get(`priorities`);
+        return await this.http.get<any>(`priorities`, this.request);
     }
 
-    create(): AxiosPromise<>
+    async create(): Promise<any>
     {
-        return axios.post(`priorities`);
+        return await this.http.post<any>(`priorities`, {}, this.request);
     }
 
-    get(): AxiosPromise<>
+    async get(): Promise<any>
     {
-        return axios.get(`priorities/{priorityId}`);
+        return await this.http.get<any>(`priorities/{priorityId}`, this.request);
     }
 
-    modify(): AxiosPromise<>
+    async modify(): Promise<any>
     {
-        return axios.put(`priorities/{priorityId}`);
+        return await this.http.put<any>(`priorities/{priorityId}`, {}, this.request);
     }
 
-    modifyPartially(): AxiosPromise<>
+    async modifyPartially(): Promise<any>
     {
-        return axios.patch(`priorities/{priorityId}`);
+        return await this.http.patch<any>(`priorities/{priorityId}`, {}, this.request);
     }
 
-    delete(): AxiosPromise<>
+    async delete(): Promise<any>
     {
-        return axios.delete(`priorities/{priorityId}`);
+        return await this.http.delete(`priorities/{priorityId}`, this.request);
     }
 
-    bulkUpdateOrder(): AxiosPromise<>
+    async bulkUpdateOrder(): Promise<any>
     {
-        return axios.post(`priorities/bulk_update_order`);
+        return await this.http.post<any>(`priorities/bulk_update_order`, {}, this.request);
     }
 }

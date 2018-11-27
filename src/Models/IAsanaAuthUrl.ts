@@ -1,3 +1,3 @@
-export interface IXXX {
+export interface IAsanaAuthUrl {
     url: string;
 }

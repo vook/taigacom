@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface IUserStoryCustomAttributeValue {
     attributes_values: AttributesValues;
     user_story: number;
     version: number;

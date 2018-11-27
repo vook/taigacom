@@ -1,29 +1,29 @@
 import {AbstractService} from "../Abstracts/AbstractService";
-import axios, {AxiosPromise} from "axios";
 
-export class UserStoryHistory extends AbstractService{
-    get(): AxiosPromise<>
+export class UserStoryHistory extends AbstractService
+{
+    async get(): Promise<any>
     {
-        return axios.get(`history/userstory/{usId}`);
+        return await this.http.get<any>(`history/userstory/{usId}`, this.request);
     }
 
-    getCommentVersions(): AxiosPromise<>
+    async getCommentVersions(): Promise<any>
     {
-        return axios.get(`history/userstory/{usId}/commentVersions?id={commentId}`);
+        return await this.http.get<any>(`history/userstory/{usId}/commentVersions?id={commentId}`, this.request);
     }
 
-    editComment(): AxiosPromise<>
+    async editComment(): Promise<any>
     {
-        return axios.post(`history/userstory/{usId}/edit_comment?id={commentId}`);
+        return await this.http.post<any>(`history/userstory/{usId}/edit_comment?id={commentId}`, {}, this.request);
     }
 
-    deleteComment(): AxiosPromise<>
+    async deleteComment(): Promise<any>
     {
-        return axios.post(`history/userstory/{usId}/delete_comment?id={commentId}`);
+        return await this.http.post<any>(`history/userstory/{usId}/delete_comment?id={commentId}`, {}, this.request);
     }
 
-    recoverComment(): AxiosPromise<>
+    async recoverComment(): Promise<any>
     {
-        return axios.post(`history/userstory/{usId}/undelete_comment?id={commentId}`);
+        return await this.http.post<any>(`history/userstory/{usId}/undelete_comment?id={commentId}`, {}, this.request);
     }
 }

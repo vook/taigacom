@@ -1,4 +1,4 @@
-export interface IXXX {
+export interface ILiked {
     assigned_to?: null;
     assigned_to_extra_info?: null;
     created_date: string;
